@@ -1,0 +1,6 @@
+<template name="tab_item1">
+  <view class="flex-item item{{item.index}}}" data-info="{{item}}" hover-class="item{{item.index}}_hl" bindtap="onEntranceClick">
+    <image class="item_image" style="width: 50rpx; height: 50rpx; background-color: #eeeeee;" src="{{item.image}}"></image>
+    <text class="item_title">{{item.title}}</text>
+  </view>
+</template>

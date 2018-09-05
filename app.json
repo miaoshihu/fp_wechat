@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/contacts/index",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f0f",
+    "navigationBarTitleText": "新河小伙",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ffff00"
+  },
+  "tabBar": {
+    "backgroundColor" : "#CDC5BF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "selectedIconPath": "imgs/tab_h.png",
+        "iconPath": "imgs/tab_n.png"
+      },
+      {
+        "pagePath": "pages/contacts/index",
+        "text": "通讯簿",
+        "selectedIconPath": "imgs/tab_h.png",
+        "iconPath": "imgs/tab_n.png"
+      }
+    ]
+  }
+}
