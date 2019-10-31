@@ -16,7 +16,7 @@ var config = {
     loginUrl: `https://${host}/login`,
 
     // 测试的请求地址，用于测试会话
-    requestUrl: `https://${host}/testRequest`,
+    requestUrl: `https://${host}/fps/index`,
 
     // 用code换取openId
     openIdUrl: `https://${host}/openid`,
@@ -31,7 +31,7 @@ var config = {
     templateMessageUrl: `https://${host}/templateMessage`,
 
     // 上传文件接口
-    uploadFileUrl: `https://${host}/upload`,
+    uploadFileUrl: `http://localhost/upload`,
 
     // 下载示例图片接口
     downloadExampleUrl: `https://${host}/static/weapp.jpg`

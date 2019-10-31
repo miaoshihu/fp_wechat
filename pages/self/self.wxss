@@ -1,0 +1,7 @@
+/* pages/self/self.wxss */
+
+.icona {
+  height: 10rpx;
+  width: 10rpx;
+  border-radius: 50%;
+}

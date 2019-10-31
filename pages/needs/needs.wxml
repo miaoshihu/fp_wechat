@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <scroll-view lower-threshold="10" scroll-y="true" style="height:100%;" bindscrolltolower="lower">
-  <text>{{title}}</text>
+  <button bindtap="bindViewTapUpload"> Upload Image </button>
   <view class="list-item item{{item.index}}"  wx:for="{{list}}" wx:key="index">
-  <text>{{title}}</text>
+  <text>{{item.type}}</text>
   <text>{{item.title}}</text>
   </view>
 </scroll-view>

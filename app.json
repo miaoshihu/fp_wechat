@@ -1,31 +1,40 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/contacts/index",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/needs/needs",
+    "pages/self/self",
+    "pages/new/new"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#f0f",
-    "navigationBarTitleText": "新河小伙",
+    "navigationBarTitleText": "旧货",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#ffff00"
   },
   "tabBar": {
-    "backgroundColor" : "#CDC5BF",
+    "backgroundColor": "#CDC5BF",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "出售",
         "selectedIconPath": "imgs/tab_h.png",
         "iconPath": "imgs/tab_n.png"
       },
       {
-        "pagePath": "pages/detail/detail",
-        "text": "通讯簿",
+        "pagePath": "pages/needs/needs",
+        "text": "求购",
+        "selectedIconPath": "imgs/tab_h.png",
+        "iconPath": "imgs/tab_n.png"
+      },
+      {
+        "pagePath": "pages/self/self",
+        "text": "个人",
         "selectedIconPath": "imgs/tab_h.png",
         "iconPath": "imgs/tab_n.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
