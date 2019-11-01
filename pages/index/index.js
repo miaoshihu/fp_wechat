@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 
+const log = require('../../utils/log').log_index
 const app = getApp()
 const testIndexUrl = require('../../config').testIndexUrl
 const duration = 2000
@@ -18,7 +19,7 @@ Page({
     })
   },
   lower: function () {
-    console.log("lower............")
+    log("lower............")
   },
 
   loadData: function () {
@@ -29,7 +30,7 @@ Page({
       title: "...."
     })
 
-    console.log("loadData %%%%%%%%%")
+    log("loadData %%%%%%%%%")
     // wx.request({
     //   // url: 'test.php', //仅为示例，并非真实的接口地址
     //   url: testIndexUrl,
@@ -56,11 +57,12 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log("onLoad called!");
+    log("onLoad called!");
+
     this.loadData();
   },
   onShow: function (options) {
-    console.log("onShow called!");
+    log("onShow called!");
   },
 
 })

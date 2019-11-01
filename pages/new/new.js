@@ -1,4 +1,7 @@
 // pages/new/new.js
+
+const log = require('../../utils/log').log_new
+
 Page({
 
   /**
@@ -10,21 +13,21 @@ Page({
   },
 
   bindInputName: function (e) {
-    console.log("Page-new bindInputName e " + e.detail.value);
+    log("Page-new bindInputName e " + e.detail.value);
   },
 
   formSubmit: function (e) {
-    console.log('Page-new form发生了submit事件，携带数据为hh：', e)
+    log('Page-new form发生了submit事件，携带数据为hh：', e)
   },
 
   formReset: function () {
-    console.log('Page-new form发生了reset事件')
+    log('Page-new form发生了reset事件')
   },
 
   onLoad: function (options) {
-    console.log("Page-new onLoad");
+    log("Page-new onLoad");
   },
   onShow: function (options) {
-    console.log("Page-new onShow");
+    log("Page-new onShow");
   },
 })

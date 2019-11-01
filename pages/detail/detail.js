@@ -1,4 +1,7 @@
 // pages/detail/index.js
+
+const log = require('../../utils/log').log_detail
+
 Page({
 
   /**
@@ -12,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id + " " + options.title);
+    log(options.id + " " + options.title);
     this.setData({ id:options.id, title: options.title});
   },
 

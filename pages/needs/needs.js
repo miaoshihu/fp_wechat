@@ -4,6 +4,7 @@
 const app = getApp()
 const uploadFileUrl = require('../../config').uploadFileUrl
 const duration = 2000
+const log = require('../../utils/log').log_needs
 
 Page({
   data: {
@@ -13,7 +14,7 @@ Page({
   //事件处理函数
   bindViewTapUpload: function () {
 
-    console.log("bindViewTapUpload");
+    log("bindViewTapUpload");
     var that = this;
 
     wx.chooseImage({
@@ -31,7 +32,7 @@ Page({
           duration: 10000
         })
 
-        console.log("chose #################### " + tempFilePaths[0])
+        log("chose #################### " + tempFilePaths[0])
 
         wx.uploadFile({
           url: uploadFileUrl,
@@ -45,11 +46,11 @@ Page({
           success: function (res) {
             // var data = JSON.parse(res.data);
             //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }
-            console.log("upload success &&&&&&&&&&&&&success&&&&&&&&&&&&" + res);
+            log("upload success &&&&&&&&&&&&&success&&&&&&&&&&&&" + res);
           },
           fail: function (res) {
 
-            console.log("upload error !!!!!!!!!!!!!!!!!  " + res.errMsg)
+            log("upload error !!!!!!!!!!!!!!!!!  " + res.errMsg)
             wx.hideToast();
             wx.showModal({
               title: '错误提示',
@@ -63,12 +64,12 @@ Page({
     });
   },
   lower: function () {
-    console.log("lower............")
+    log("lower............")
   },
 
   loadData: function () {
 
-    console.log("loadData %%%%%%%%%")
+    log("loadData %%%%%%%%%")
     // wx.request({
     //   // url: 'test.php', //仅为示例，并非真实的接口地址
     //   url: "test.php",
@@ -85,11 +86,11 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log("onLoad called!");
+    log("onLoad called!");
     this.loadData();
   },
   onShow: function (options) {
-    console.log("onShow called!");
+    log("onShow called!");
   },
 
 })

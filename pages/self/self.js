@@ -1,4 +1,7 @@
 // pages/detail/index.js
+
+const log = require('../../utils/log').log_self
+
 Page({
 
   /**
@@ -15,8 +18,8 @@ Page({
       /*withCredentials默认值为true,可不填，当设为false时就获取不到用户的加密信息*/
       withCredentials: true,
       success: function (res) {
-        console.log('***get user success*********');
-        console.log(res)
+        log('***get user success*********');
+        log(res)
         var user = res.userInfo
         _this.setData({
           userInfo: user,
@@ -25,8 +28,8 @@ Page({
 
       },
       fail: function (res) {
-        console.log('***get user ffffa*********');
-        console.log(res)
+        log('***get user ffffa*********');
+        log(res)
       }
     })
   },

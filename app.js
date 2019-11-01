@@ -2,15 +2,16 @@
 const appId = require('./config').app_id
 const appSecret = require('./config').app_secret
 const wechatLoginUrl = require('./config').wechatLoginUrl
-const wechatLoginUrl = require('./config').wechatLoginUrl
+
+const log = require('./utils/log').log_app
 
 App({
   onLaunch: function (options) {
 
-    console.log("App() onLaunch options.path = " + options.path);
-    console.log("App() onLaunch options.query = " + options.query);
-    console.log("App() onLaunch options.scene = " + options.scene);
-    console.log("App() onLaunch options.shareTicket = " + options.shareTicket);
+    log("App() onLaunch options.path = " + options.path);
+    log("App() onLaunch options.query = " + options.query);
+    log("App() onLaunch options.scene = " + options.scene);
+    log("App() onLaunch options.shareTicket = " + options.shareTicket);
 
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
