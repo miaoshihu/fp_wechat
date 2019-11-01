@@ -2,7 +2,7 @@
 //获取应用实例
 
 const app = getApp()
-const requestUrl = require('../../config').requestUrl
+const uploadFileUrl = require('../../config').uploadFileUrl
 const duration = 2000
 
 Page({
@@ -34,7 +34,7 @@ Page({
         console.log("chose #################### " + tempFilePaths[0])
 
         wx.uploadFile({
-          url: 'http://localhost/upload/',
+          url: uploadFileUrl,
           filePath: tempFilePaths[0],
           name: 'uploadfile_ant',
           formData: {

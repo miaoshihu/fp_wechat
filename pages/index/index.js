@@ -2,7 +2,7 @@
 //获取应用实例
 
 const app = getApp()
-const requestUrl = require('../../config').requestUrl
+const testIndexUrl = require('../../config').testIndexUrl
 const duration = 2000
 
 Page({
@@ -32,7 +32,7 @@ Page({
     console.log("loadData %%%%%%%%%")
     // wx.request({
     //   // url: 'test.php', //仅为示例，并非真实的接口地址
-    //   url: "http://localhost:8066/fps/index",
+    //   url: testIndexUrl,
     //   data: {
     //     sid: 's1',
     //     code: "java",

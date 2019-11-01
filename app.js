@@ -1,4 +1,9 @@
 //app.js
+const appId = require('./config').app_id
+const appSecret = require('./config').app_secret
+const wechatLoginUrl = require('./config').wechatLoginUrl
+const wechatLoginUrl = require('./config').wechatLoginUrl
+
 App({
   onLaunch: function (options) {
 
@@ -17,11 +22,11 @@ App({
     //   success: function (res) {
 
     //     wx.request({
-    //       url: 'http://127.0.0.1:8077/fps/wechat_login',
+    //       url: wechatLoginUrl,
     //       data: {
     //         code: res.code,
-    //         app_id: "my_app_id",
-    //         app_secret: "my_app_secret"
+    //         app_id: appId,
+    //         app_secret: appSecret
     //       },
     //       success: function (res) {
     //         console.log("wx.request fps server success ***********")     
