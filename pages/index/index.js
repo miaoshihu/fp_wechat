@@ -8,61 +8,53 @@ const duration = 2000
 
 Page({
   data: {
-    list: [
-    ],
+    list: [],
     title: "default"
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  lower: function () {
-    log("lower............")
-  },
 
-  loadData: function () {
-
-    var _this = this
-
-    _this.setData({
-      title: "...."
-    })
-
-    log("loadData %%%%%%%%%")
-    // wx.request({
-    //   // url: 'test.php', //仅为示例，并非真实的接口地址
-    //   url: testIndexUrl,
-    //   data: {
-    //     sid: 's1',
-    //     code: "java",
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success: function (res) {
-    //     console.log("*****33********" + res.data)
-    //     _this.setData({
-    //       title: res.data
-    //     })
-    //   },
-    //   fail: function (res) {
-    //     console.log("*****44********" + res.data)
-    //     _this.setData({
-    //       title: "failed" + res.errMsg
-    //     })
-    //   },
-    // })
-  },
-
-  onLoad: function (options) {
+  onLoad: function(options) {
     log("onLoad called!");
 
     this.loadData();
   },
-  onShow: function (options) {
+
+  onShow: function(options) {
     log("onShow called!");
   },
+
+  loadData: function() {
+    log("loadData ")
+
+    var _this = this;
+    var mylist = this.testAddList();
+
+    _this.setData({
+      title: "....",
+      list: mylist,
+    })
+  },
+
+  onReachBottom: function() {
+    log("onReachBottom");
+    var mylist = this.testAddList();
+    var _this = this;
+
+    _this.setData({
+      title: "....",
+      list: mylist,
+    })
+  },
+
+  testAddList: function() {
+    var curList = this.data.list;
+    var length = this.data.list.length;
+    for (var i = 0; i < 7; i++) {
+      curList.push({
+        type: (i + length),
+        title: "物体 " + (i + length),
+      });
+    }
+    return curList;
+  }
 
 })
