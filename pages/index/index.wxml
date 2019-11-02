@@ -1,9 +1,16 @@
 <!--index.wxml-->
 <view>
-  <scroll-view scroll-y="true" style="height:100%;" >
+  <scroll-view scroll-y="true" style="height:100%;">
     <view class="list-item item{{item.index}}" wx:for="{{list}}" wx:key="index">
-      <text>{{item.type}}</text>
-      <text>{{item.title}}</text>
+      <view class="text_container">
+        <text class="text_title margin_left_20">{{item.type}}</text>
+        <text class="text_title margin_left_20">{{item.title}}</text>
+        <text class="text_title margin_left_20">{{item.price}}</text>
+      </view>
+      <view class="image_container">
+        <image class="image" mode="aspectFit" src="{{item.image1}}"></image>
+        <image class="image" mode="aspectFit" src="{{item.image2}}"></image>
+      </view>
     </view>
   </scroll-view>
 </view>
