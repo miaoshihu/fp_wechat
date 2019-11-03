@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view>
   <scroll-view scroll-y="true" style="height:100%;">
-    <view class="list-item item{{item.index}}" wx:for="{{list}}" wx:key="index">
+    <view class="list-item item{{item.index}}" wx:for="{{list}}" wx:key="index" bindtap="handleClick" data-id="{{item.id}}" data-title="{{item.title}}" >
       <view class="text_container">
-        <text class="text_title margin_left_20">{{item.type}}</text>
+        <text class="text_title margin_left_20">{{item.id}}</text>
         <text class="text_title margin_left_20">{{item.title}}</text>
         <text class="text_title margin_left_20">{{item.price}}</text>
       </view>

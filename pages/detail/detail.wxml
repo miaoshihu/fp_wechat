@@ -1,2 +1,15 @@
 <!--pages/detail/index.wxml-->
-<text>{{title}}</text>
+<view class="detail_layout">
+  <text>{{id}}</text>
+  <text>{{title}}</text>
+  <text>{{price}}元</text>
+  <text>{{short_desc}}</text>
+  <text>{{desc}}</text>
+
+  <view class="phone_number" bindtap="phoneCall" data-phone="{{phone}}">
+    <text>{{phone}}</text>
+  </view>
+  <text>{{address}}</text>
+  <text>{{image1}}</text>
+  <text>{{image2}}</text>
+</view>

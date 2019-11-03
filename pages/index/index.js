@@ -12,17 +12,17 @@ Page({
     title: "default"
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     log("onLoad called!");
 
     this.loadData();
   },
 
-  onShow: function (options) {
+  onShow: function(options) {
     log("onShow called!");
   },
 
-  loadData: function () {
+  loadData: function() {
     log("loadData ")
 
     var _this = this;
@@ -34,7 +34,14 @@ Page({
     })
   },
 
-  onReachBottom: function () {
+  handleClick: function(e) {
+    var id = e.currentTarget.dataset['id'];
+    var title = e.currentTarget.dataset['title'];
+    log("handleClick  " + id + " " + title);
+    this.launchPage(id,title);
+  },
+
+  onReachBottom: function() {
     log("onReachBottom");
     var mylist = this.testAddList();
     var _this = this;
@@ -45,12 +52,18 @@ Page({
     })
   },
 
-  testAddList: function () {
+  launchPage: function(id, title) {
+    wx.navigateTo({
+      url: '../detail/detail?id=' + id + "&title=" + title,
+    })
+  },
+
+  testAddList: function() {
     var curList = this.data.list;
     var length = this.data.list.length;
     for (var i = 0; i < 7; i++) {
       curList.push({
-        type: (i + length),
+        id: (i + length),
         title: "物体 " + (i + length),
         price: this.testGeneratePrice() + "元",
         image1: this.generateImage(),
@@ -64,7 +77,7 @@ Page({
     return parseInt(Math.random() * 300);
   },
 
-  generateImage: function () {
+  generateImage: function() {
     var list = [
       "https://android-screenimgs.25pp.com/fs08/2019/08/06/7/109_5a2aa003ed42083d7516ec9f83b44019_234x360.jpg",
       "https://android-screenimgs.25pp.com/fs08/2019/08/06/1/109_eb84b0e60a186d8e190966318ea64c11_234x360.jpg",
