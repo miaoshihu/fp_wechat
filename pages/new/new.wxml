@@ -43,7 +43,7 @@
     <view class="item_desc">
       <view class="item_1">照片</view>
       <view class="item_2">
-        <image class="image" mode="aspectFit" src="{{image_path_1}}"></image>
+        <image bindtap="addImage1" class="image" mode="aspectFit" src="{{image_path_1}}"></image>
         <image class="image" mode="aspectFit" src="{{image_path_2}}"></image>
       </view>
     </view>
