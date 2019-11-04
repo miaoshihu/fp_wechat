@@ -40,6 +40,12 @@ Page({
     })
   },
 
+  gotoMyPublish: function(e) {
+    wx.navigateTo({
+      url: '../mylist/mylist'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

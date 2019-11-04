@@ -22,6 +22,10 @@ const log_self = str => {
   console.log("Page self => " + str)
 }
 
+const log_mylist = str => {
+  console.log("Page mylist => " + str);
+}
+
 module.exports = {
   log_index: log_index,
   log_detail: log_detail,
@@ -29,4 +33,5 @@ module.exports = {
   log_new: log_new,
   log_self: log_self,
   log_app: log_app,
+  log_mylist: log_mylist,
 }

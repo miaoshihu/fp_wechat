@@ -9,4 +9,6 @@
   <open-data type="userNickName" lang="zh_CN"></open-data>
 </button>
 
+<button type="default" size="{{primarySize}}" bindtap="gotoMyPublish"> 我的发布 </button>
+
 <button type="primary" size="{{primarySize}}" bindtap="gotoPubish"> 发布 </button>
