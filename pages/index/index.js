@@ -13,17 +13,13 @@ Page({
   },
 
   onLoad: function(options) {
-    log("onLoad called!");
+    log("onLoad");
 
     this.loadData();
   },
 
-  onShow: function(options) {
-    log("onShow called!");
-  },
-
   loadData: function() {
-    log("loadData ")
+    log("loadData")
 
     var _this = this;
     var mylist = this.testAddList();
@@ -53,6 +49,7 @@ Page({
   },
 
   launchPage: function(id, title) {
+    log("launchPage " + id + " , " + title);
     wx.navigateTo({
       url: '../detail/detail?id=' + id + "&title=" + title,
     })

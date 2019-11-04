@@ -13,13 +13,9 @@ Page({
   },
 
   onLoad: function(options) {
-    log("onLoad called!");
+    log("onLoad");
 
     this.loadData();
-  },
-
-  onShow: function(options) {
-    log("onShow called!");
   },
 
   loadData: function() {
@@ -39,10 +35,6 @@ Page({
     var title = e.currentTarget.dataset['title'];
     log("handleClick  " + id + " " + title);
     this.launchPage(id,title);
-  },
-
-  onReachBottom: function() {
-    log("onReachBottom");
   },
 
   launchPage: function(id, title) {

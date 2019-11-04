@@ -63,9 +63,6 @@ Page({
       }
     });
   },
-  lower: function () {
-    log("lower............")
-  },
 
   loadData: function () {
 
@@ -86,11 +83,8 @@ Page({
   },
 
   onLoad: function (options) {
-    log("onLoad called!");
+    log("onLoad");
     this.loadData();
-  },
-  onShow: function (options) {
-    log("onShow called!");
   },
 
 })

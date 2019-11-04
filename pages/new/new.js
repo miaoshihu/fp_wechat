@@ -13,15 +13,15 @@ Page({
   },
 
   bindInputName: function(e) {
-    log("Page-new bindInputName e " + e.detail.value);
+    log("bindInputName");
   },
 
   formSubmit: function(e) {
-    log('Page-new form发生了submit事件，携带数据为hh：', e)
+    log('fromSubmit')
   },
 
   formReset: function() {
-    log('Page-new form发生了reset事件')
+    log('formReset')
   },
 
   addImage1: function(e) {
@@ -41,9 +41,6 @@ Page({
   },
 
   onLoad: function(options) {
-    log("Page-new onLoad");
-  },
-  onShow: function(options) {
-    log("Page-new onShow");
+    log("onLoad");
   },
 })
