@@ -16,7 +16,7 @@ App({
     log("onLaunch -> wx.login");
     wx.login({
       success: function (res) {
-        log("onLaunch -> wx.login success -> wx.request self server");
+        log("onLaunch -> wx.login success with code = " + res.code);
         wx.request({
           url: wechatLoginUrl,
           data: {
@@ -25,12 +25,14 @@ App({
             app_secret: appSecret
           },
           success: function (res) {
-            log("onLaunch -> wx.login self server success ");
-            console.log("res = " + res.data)
-            console.log(res.statusCode)      
+            log("onLaunch -> wx.login self server success " + JSON.stringify(res));
+            var openId = res.data.openid
+            console.log("openId = " + openId)
+            console.log(res.statusCode)
+            console.log("You did it!")
           },
           fail: function (res) {
-            log("onLaunch -> wx.login self server fail ");
+            log("onLaunch -> wx.login self server fail " + res);
           }
         })
       }
