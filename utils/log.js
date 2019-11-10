@@ -3,27 +3,27 @@ const log_app = str => {
 }
 
 const log_index = str => {
-  console.log("Page index => " + str)
+  console.log("Index => " + str)
 }
 
 const log_detail = str => {
-  console.log("Page detail => " + str)
+  console.log("Detail => " + str)
 }
 
 const log_needs = str => {
-  console.log("Page needs => " + str)
+  console.log("Needs => " + str)
 }
 
 const log_new = str => {
-  console.log("Page new => " + str)
+  console.log("New => " + str)
 }
 
 const log_self = str => {
-  console.log("Page self => " + str)
+  console.log("Self => " + str)
 }
 
 const log_mylist = str => {
-  console.log("Page mylist => " + str);
+  console.log("Mylist => " + str);
 }
 
 module.exports = {
