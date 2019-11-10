@@ -1,6 +1,7 @@
 // pages/new/new.js
 
 const log = require('../../utils/log').log_new
+const goodSubmitUrl = require('../../config').goodSubmitUrl
 
 Page({
 
@@ -12,12 +13,21 @@ Page({
     image_path_2: "../../imgs/add.jpeg"
   },
 
-  bindInputName: function(e) {
-    log("bindInputName");
-  },
-
   formSubmit: function(e) {
-    log('fromSubmit')
+    log('fromSubmit ' + JSON.stringify(e.detail.value))
+
+    wx.request({
+      url: goodSubmitUrl,
+      data: e.detail.value,
+      success: function (res) {
+        // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
+        console.log(res.statusCode)
+        console.log("submit success code : " + JSON.stringify(res.data))
+      },
+      fail: function (res) {
+        log("submit faild " + res);
+      }
+    })
   },
 
   formReset: function() {

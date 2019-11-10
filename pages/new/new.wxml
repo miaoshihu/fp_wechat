@@ -14,28 +14,28 @@
   <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="item">
       <view class="item_1">名称</view>
-      <input class="item_2" name="good_name" placeholder="货物名称" auto-focus/>
+      <input class="item_2" name="name" placeholder="货物名称" auto-focus/>
     </view>
 
     <view class="line"></view>
 
     <view class="item">
       <view class="item_1">简介</view>
-      <input class="item_2" name="good_short_desc" placeholder="一句话描述"/>
+      <input class="item_2" name="short_desc" placeholder="一句话描述"/>
     </view>
 
     <view class="line"></view>
 
     <view class="item">
       <view class="item_1">价格</view>
-      <input class="item_2" name="good_price" type="digit" placeholder="出售不能高于此价格" />
+      <input class="item_2" name="price" type="digit" placeholder="出售不能高于此价格" />
     </view>
 
     <view class="line"></view>
 
     <view class="item_desc">
       <view class="item_1">详细</view>
-      <textarea class="item_2" name="good_desc" maxlength="50" placeholder="请简要描写，文字控制在50字以内" />
+      <textarea class="item_2" name="desc" maxlength="50" placeholder="请简要描写，文字控制在50字以内" />
     </view>
 
     <view class="line"></view>
@@ -52,7 +52,7 @@
 
     <view class="item">
       <view class="item_1">地址</view>
-      <input class="item_2" name="good_address" placeholder="小区名字" />
+      <input class="item_2" name="address" placeholder="小区名字" />
     </view>
 
     <view class="line"></view>
