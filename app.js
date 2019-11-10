@@ -25,7 +25,7 @@ App({
             app_secret: appSecret
           },
           success: function (res) {
-            log("onLaunch -> wx.login self server success " + JSON.stringify(res));
+            // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
             var openId = res.data.openid
             console.log("openId = " + openId)
             console.log(res.statusCode)
