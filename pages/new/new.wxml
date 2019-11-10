@@ -21,7 +21,7 @@
 
     <view class="item">
       <view class="item_1">简介</view>
-      <input class="item_2" name="good_short_desc" placeholder="一句话描述" bindinput="bindInputShortDesc" />
+      <input class="item_2" name="good_short_desc" placeholder="一句话描述"/>
     </view>
 
     <view class="line"></view>
@@ -59,9 +59,9 @@
 
     <view class="item">
       <view class="item_1">称呼</view>
-      <input class="item_2" name="first_name" placeholder="先生/小姐" bindinput="bindInputName" />
+      <input class="item_2" name="first_name" placeholder="先生/小姐" />
 
-      <radio-group name="gender" class="radio-group" bindchange="radioChange">
+      <radio-group name="gender" class="radio-group" >
         <radio value="male" checked="true">先生</radio>
         <radio value="female" checked="false">小姐</radio>
       </radio-group>
