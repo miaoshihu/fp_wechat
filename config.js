@@ -31,10 +31,12 @@ var config = {
     templateMessageUrl: `https://${host}/templateMessage`,
 
     // 上传文件接口
-    uploadFileUrl: `http://localhost/upload`,
+    uploadFileUrl: `https://${host}/upload`,
 
     // 下载示例图片接口
     downloadExampleUrl: `https://${host}/static/weapp.jpg`
+    goodSubmitUrl: `https://${host}/fps/good/submit`,
+
 };
 
 module.exports = config
