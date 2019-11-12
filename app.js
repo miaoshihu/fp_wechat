@@ -30,9 +30,25 @@ App({
             console.log("openId = " + openId)
             console.log(res.statusCode)
             console.log("You did it!")
+
+            wx.hideToast();
+            wx.showModal({
+              title: '成功',
+              content: "openid = " + openId,
+              showCancel: false,
+              success: function (res) { }
+            })
           },
           fail: function (res) {
             log("onLaunch -> wx.login self server fail " + res);
+
+            wx.hideToast();
+            wx.showModal({
+              title: '失败',
+              content: "openid 获取失败",
+              showCancel: false,
+              success: function (res) { }
+            })
           }
         })
       }

@@ -32,13 +32,14 @@ Page({
           duration: 10000
         })
 
-        log("chose #################### " + tempFilePaths[0])
+        log("chose file: " + tempFilePaths[0])
 
         wx.uploadFile({
           url: uploadFileUrl,
           filePath: tempFilePaths[0],
           name: 'uploadfile_ant',
           formData: {
+            myname: "lidehua",
           },
           header: {
             "Content-Type": "multipart/form-data"
@@ -46,7 +47,7 @@ Page({
           success: function (res) {
             // var data = JSON.parse(res.data);
             //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }
-            log("upload success &&&&&&&&&&&&&success&&&&&&&&&&&&" + res);
+            log("upload success " + JSON.stringify(res.data));
           },
           fail: function (res) {
 
