@@ -66,21 +66,7 @@ Page({
   },
 
   loadData: function () {
-
-    log("loadData %%%%%%%%%")
-    // wx.request({
-    //   // url: 'test.php', //仅为示例，并非真实的接口地址
-    //   url: "test.php",
-    //   data: {
-    //     sid: 's1',
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' // 默认值
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data)
-    //   }
-    // })
+    log("loadData")
   },
 
   onLoad: function (options) {
