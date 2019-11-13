@@ -6,7 +6,7 @@ const wechatLoginUrl = require('./config').wechatLoginUrl
 const log = require('./utils/log').log_app
 
 App({
-  onLaunch: function (options) {
+  onLaunch: function(options) {
 
     log("onLaunch options.path = " + options.path);
     log("onLaunch options.query = " + options.query);
@@ -14,8 +14,32 @@ App({
     log("onLaunch options.shareTicket = " + options.shareTicket);
 
     log("onLaunch -> wx.login");
+
+    var that = this;
+
+    wx.getStorage({
+      key: 'openid',
+      success(res) {
+        console.log("success getStorage " + res.data)
+        wx.hideToast();
+        wx.showModal({
+          title: '本地获取',
+          content: "openid = " + res.data,
+          showCancel: false,
+          success: function(res) {}
+        })
+      },
+      fail(res) {
+        console.log("faild getStorage " + res.data)
+        that.getOpenId();
+      }
+    })
+
+  },
+
+  getOpenId: function() {
     wx.login({
-      success: function (res) {
+      success: function(res) {
         log("onLaunch -> wx.login success with code = " + res.code);
         wx.request({
           url: wechatLoginUrl,
@@ -24,27 +48,32 @@ App({
             app_id: appId,
             app_secret: appSecret
           },
-          success: function (res) {
+          success: function(res) {
             // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
             var openId = res.data.openid
             console.log("openId = " + openId)
             console.log(res.statusCode)
             console.log("You did it!")
 
+            wx.setStorage({
+              key: "openid",
+              data: openId,
+            })
+
             wx.hideToast();
             wx.showModal({
-              title: '成功',
+              title: '网络获取成功',
               content: "openid = " + openId,
               showCancel: false,
               success: function (res) { }
             })
           },
-          fail: function (res) {
+          fail: function(res) {
             log("onLaunch -> wx.login self server fail " + res);
 
             wx.hideToast();
             wx.showModal({
-              title: '失败',
+              title: '网络获取失败',
               content: "openid 获取失败",
               showCancel: false,
               success: function (res) { }
@@ -57,5 +86,5 @@ App({
 
   globalData: {
     userInfo: null
-  }
+  },
 })
