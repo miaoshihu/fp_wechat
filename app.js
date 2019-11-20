@@ -14,30 +14,34 @@ App({
     log("onLaunch options.shareTicket = " + options.shareTicket);
 
     log("onLaunch -> wx.login");
+    this.getOpenId();
 
+  },
+
+  getOpenId: function () {
     var that = this;
-
     wx.getStorage({
       key: 'openid',
       success(res) {
-        console.log("success getStorage " + res.data)
+        console.log("success getStorage " + res.data);
+        const app = getApp()
+        app.globalData.gOpenId = res.data;
         wx.hideToast();
         wx.showModal({
           title: '本地获取',
-          content: "openid = " + res.data,
+          content: "openid = " + app.globalData.gOpenId,
           showCancel: false,
-          success: function(res) {}
+          success: function (res) { }
         })
       },
       fail(res) {
         console.log("faild getStorage " + res.data)
-        that.getOpenId();
+        that.getOpenIdFromServer();
       }
     })
-
   },
 
-  getOpenId: function() {
+  getOpenIdFromServer: function() {
     wx.login({
       success: function(res) {
         log("onLaunch -> wx.login success with code = " + res.code);
@@ -51,6 +55,7 @@ App({
           success: function(res) {
             // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
             var openId = res.data.openid
+            gOpenId = openId;
             console.log("openId = " + openId)
             console.log(res.statusCode)
             console.log("You did it!")
@@ -85,6 +90,7 @@ App({
   },
 
   globalData: {
-    userInfo: null
+    gUserInfo: null,
+    gOpenId: null,
   },
 })

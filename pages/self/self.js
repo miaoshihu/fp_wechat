@@ -10,40 +10,35 @@ Page({
   data: {
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    wx.getUserInfo({
-      /*withCredentials默认值为true,可不填，当设为false时就获取不到用户的加密信息*/
-      withCredentials: true,
-      success: function (res) {
-        log('***get user success*********');
-        log(res)
-        var user = res.userInfo
-        _this.setData({
-          userInfo: user,
-          hasUserInfo: true
-        })
-
-      },
-      fail: function (res) {
-        log('***get user ffffa*********');
-        log(res)
-      }
-    })
   },
 
-  gotoPubish: function(e) {
+  gotoPubish: function (e) {
     wx.navigateTo({
       url: '../new/new'
     })
   },
 
-  gotoMyPublish: function(e) {
+  gotoMyPublish: function (e) {
     wx.navigateTo({
       url: '../mylist/mylist'
     })
+  },
+
+  onGotUserInfo: function (e) {
+    log("onGotUserInfo");
+    if (e.detail.userInfo != null) {
+      log("userinfo != null " + e.detail.userInfo.nickName);
+      var app = getApp();
+      app.globalData.gUserInfo = e.detail.userInfo;
+
+      this.gotoPubish();
+    } else {
+      log("userinfo = null");
+    }
+    log("error: " + e.detail.errMsg)
+    log("userInfo: " + e.detail.userInfo)
+    log("rawData: " + e.detail.rawData)
   },
 
   /**

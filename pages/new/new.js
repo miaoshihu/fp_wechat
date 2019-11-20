@@ -14,6 +14,12 @@ Page({
   },
 
   formSubmit: function(e) {
+
+    const app = getApp();
+
+    e.detail.value.user_id = app.globalData.gOpenId;
+    e.detail.value.user_nickname = app.globalData.gUserInfo.nickName;
+
     log('fromSubmit ' + JSON.stringify(e.detail.value))
 
     wx.request({

@@ -11,4 +11,4 @@
 
 <button type="default" size="{{primarySize}}" bindtap="gotoMyPublish"> 我的发布 </button>
 
-<button type="primary" size="{{primarySize}}" bindtap="gotoPubish"> 发布 </button>
+<button type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"> 发布 </button>
