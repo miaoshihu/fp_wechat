@@ -1,0 +1,68 @@
+<!--pages/new/new.wxml-->
+<!-- 
+  1.scrollview
+  2.竖向布局
+  3.每一项，横向布局
+  4.名称: 凤凰自行车
+  5.金额: 100元
+  6.电话: 1009203900
+  7.一句话简介: 这个车真是好
+  8.详细描述
+  横向布局
+-->
+<scroll-view lower-threshold="10" scroll-y="true" style="height:100%;" bindscrolltolower="lower">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="item">
+      <view class="item_1">名称</view>
+      <input class="item_2" name="name" placeholder="货物名称" auto-focus/>
+    </view>
+
+    <view class="line"></view>
+
+    <view class="item">
+      <view class="item_1">最高价格</view>
+      <input class="item_2" name="price" type="digit" placeholder="求购不能高于此价格" />
+    </view>
+
+    <view class="line"></view>
+
+    <view class="item_desc">
+      <view class="item_1">详细</view>
+      <textarea class="item_2" name="desc" maxlength="50" placeholder="请简要描写，文字控制在50字以内" />
+    </view>
+
+    <view class="line"></view>
+
+    <view class="item">
+      <view class="item_1">地址</view>
+      <input class="item_2" name="address" placeholder="小区名字" />
+    </view>
+
+    <view class="line"></view>
+
+    <view class="item">
+      <view class="item_1">称呼</view>
+      <input class="item_2" name="first_name" placeholder="先生/小姐" />
+
+      <radio-group name="gender" class="radio-group" >
+        <radio value="male" checked="true">先生</radio>
+        <radio value="female" checked="false">小姐</radio>
+      </radio-group>
+    </view>
+
+    <view class="line"></view>
+
+    <view class="item">
+      <view class="item_1">电话</view>
+      <input name="phone" class="item_2" type="number" maxlength="11" placeholder="你的电话号码" />
+    </view>
+
+    <view class="line"></view>
+
+    <view class="item">
+      <button formType="submit">Submit</button>
+      <button formType="reset">Reset</button>
+    </view>
+    <view class="bottom"></view>
+  </form>
+</scroll-view>

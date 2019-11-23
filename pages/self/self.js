@@ -19,6 +19,12 @@ Page({
     })
   },
 
+  gotoPubish2: function (e) {
+    wx.navigateTo({
+      url: '../new2/new2'
+    })
+  },
+
   gotoMyPublish: function (e) {
     wx.navigateTo({
       url: '../mylist/mylist'
@@ -33,6 +39,22 @@ Page({
       app.globalData.gUserInfo = e.detail.userInfo;
 
       this.gotoPubish();
+    } else {
+      log("userinfo = null");
+    }
+    log("error: " + e.detail.errMsg)
+    log("userInfo: " + e.detail.userInfo)
+    log("rawData: " + e.detail.rawData)
+  },
+
+  onGotUserInfo2: function (e) {
+    log("onGotUserInfo2");
+    if (e.detail.userInfo != null) {
+      log("userinfo != null " + e.detail.userInfo.nickName);
+      var app = getApp();
+      app.globalData.gUserInfo = e.detail.userInfo;
+
+      this.gotoPubish2();
     } else {
       log("userinfo = null");
     }

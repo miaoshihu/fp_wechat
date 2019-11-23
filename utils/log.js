@@ -18,6 +18,10 @@ const log_new = str => {
   console.log("New => " + str)
 }
 
+const log_new2 = str => {
+  console.log("New2 => " + str)
+}
+
 const log_self = str => {
   console.log("Self => " + str)
 }
@@ -31,6 +35,7 @@ module.exports = {
   log_detail: log_detail,
   log_needs: log_needs,
   log_new: log_new,
+  log_new2: log_new2,
   log_self: log_self,
   log_app: log_app,
   log_mylist: log_mylist,

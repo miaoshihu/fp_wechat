@@ -3,8 +3,10 @@
 
 const log = require('../../utils/log').log_index
 const app = getApp()
-const testIndexUrl = require('../../config').testIndexUrl
+const goodListUrl = require('../../config').goodListUrl
 const duration = 2000
+
+var curPage = 1;
 
 Page({
   data: {
@@ -23,6 +25,7 @@ Page({
 
     var _this = this;
     var mylist = this.testAddList();
+    var mylist2 = this.getList(curPage++);
 
     _this.setData({
       title: "....",
@@ -30,11 +33,31 @@ Page({
     })
   },
 
+  getList: function(page) {
+    console.log("getList page = " + page)
+    var mydata = {}
+    mydata.page = page;
+    console.log(mydata)
+    wx.request({
+      url: goodListUrl,
+      data: mydata,
+      success: function (res) {
+        // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
+        // console.log(res.statusCode)
+        console.log("getGoodList success code : " + JSON.stringify(res.data))
+      },
+      fail: function (res) {
+        log("getGoodList faild " + res);
+      }
+    })
+  },
+
   handleClick: function(e) {
-    var id = e.currentTarget.dataset['id'];
-    var title = e.currentTarget.dataset['title'];
-    log("handleClick  " + id + " " + title);
-    this.launchPage(id,title);
+    // var id = e.currentTarget.dataset['id'];
+    // var title = e.currentTarget.dataset['title'];
+    // log("handleClick  " + id + " " + title);
+    // this.launchPage(id,title);
+    this.getList(curPage++)
   },
 
   onReachBottom: function() {

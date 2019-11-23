@@ -11,4 +11,6 @@
 
 <button type="default" size="{{primarySize}}" bindtap="gotoMyPublish"> 我的发布 </button>
 
-<button type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"> 发布 </button>
+<button type="default" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo2"> 我要求购 </button>
+
+<button type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"> 我要出售 </button>
