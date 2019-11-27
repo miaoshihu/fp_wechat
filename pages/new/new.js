@@ -50,19 +50,6 @@ Page({
 
   addImage1: function(e) {
     log("addImage1 " + e);
-    // var _this = this;
-    // wx.chooseImage({
-    //   count: 1, //最多可以选择的图片总数
-    //   sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
-    //   sourceType: ['album', 'camera'],
-    //   success: function(res) {
-    //     var tempPath = res.tempFilePaths[0];
-    //     _this.setData({
-    //       image_path_1: tempPath,
-    //     });
-    //   }
-    // });
-
     this.handleImage1Clicked();
   },
 
