@@ -85,7 +85,11 @@ Page({
       curList.push({
         id: (i + length),
         title: "物体 " + (i + length),
-        price: this.testGeneratePrice() + "元",
+        desc: "刚买的一个月，这个可好用了，一直舍不得用，现在卖出去，大家不要抢的太凶",
+        address: "花香镇",
+        nickname: "Alice",
+        time: "11-26 08:50",
+        price: "¥ " + this.testGeneratePrice(),
         image1: this.generateImage(),
         image2: this.generateImage(),
       });

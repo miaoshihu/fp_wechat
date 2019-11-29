@@ -1,77 +1,102 @@
 //index.js
 //获取应用实例
 
-const app = getApp()
-const uploadFileUrl = require('../../config').uploadFileUrl
-const duration = 2000
 const log = require('../../utils/log').log_needs
+const app = getApp()
+const listUrl = require('../../config').needListUrl
+const duration = 2000
+
+var curPage = 1;
 
 Page({
   data: {
-    list: [
-    ]
-  },
-  //事件处理函数
-  bindViewTapUpload: function () {
-
-    log("bindViewTapUpload");
-    var that = this;
-
-    wx.chooseImage({
-      count: 1,  //最多可以选择的图片总数
-      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths;
-        //启动上传等待中...
-        wx.showToast({
-          title: '正在上传...'+ tempFilePaths[0],
-          icon: 'loading',
-          mask: true,
-          duration: 10000
-        })
-
-        log("chose file: " + tempFilePaths[0])
-
-        wx.uploadFile({
-          url: uploadFileUrl,
-          filePath: tempFilePaths[0],
-          name: 'uploadfile_ant',
-          formData: {
-            myname: "lidehua",
-          },
-          header: {
-            "Content-Type": "multipart/form-data"
-          },
-          success: function (res) {
-            // var data = JSON.parse(res.data);
-            //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }
-            log("upload success " + JSON.stringify(res.data));
-          },
-          fail: function (res) {
-
-            log("upload error !!!!!!!!!!!!!!!!!  " + res.errMsg)
-            wx.hideToast();
-            wx.showModal({
-              title: '错误提示',
-              content: '上传图片失败' + res.content,
-              showCancel: false,
-              success: function (res) { }
-            })
-          }
-        });
-      }
-    });
-  },
-
-  loadData: function () {
-    log("loadData")
+    list: [],
+    title: "default"
   },
 
   onLoad: function (options) {
     log("onLoad");
+
     this.loadData();
+  },
+
+  loadData: function () {
+    log("loadData")
+
+    var _this = this;
+    var mylist = this.testAddList();
+    var mylist2 = this.getList(curPage++);
+
+    _this.setData({
+      title: "....",
+      list: mylist,
+    })
+  },
+
+  getList: function (page) {
+    console.log("getList page = " + page)
+    var mydata = {}
+    mydata.page = page;
+    console.log(mydata)
+    wx.request({
+      url: listUrl,
+      data: mydata,
+      success: function (res) {
+        // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
+        // console.log(res.statusCode)
+        console.log("getNeedList success code : " + JSON.stringify(res.data))
+      },
+      fail: function (res) {
+        log("getNeedList faild " + res);
+      }
+    })
+  },
+
+  handleClick: function (e) {
+    // var id = e.currentTarget.dataset['id'];
+    // var title = e.currentTarget.dataset['title'];
+    // log("handleClick  " + id + " " + title);
+    // this.launchPage(id,title);
+    this.getList(curPage++)
+  },
+
+  onReachBottom: function () {
+    log("onReachBottom");
+    var mylist = this.testAddList();
+    var _this = this;
+
+    _this.setData({
+      title: "....",
+      list: mylist,
+    })
+  },
+
+  launchPage: function (id, title) {
+    log("launchPage " + id + " , " + title);
+    wx.navigateTo({
+      url: '../detail/detail?id=' + id + "&title=" + title,
+    })
+  },
+
+  testAddList: function () {
+    var curList = this.data.list;
+    var length = this.data.list.length;
+    for (var i = 0; i < 7; i++) {
+      curList.push({
+        id: (i + length),
+        title: "求购 物体 " + (i + length),
+        desc: "急需一台二手电动车，能用，接送孩子使用，要求好骑,八九成新就行",
+        address: "花香小镇",
+        nickname: "Alice",
+        time: "11-26 08:50",
+        price: "¥ " + this.testGeneratePrice(),
+      });
+    }
+    return curList;
+  },
+
+  testGeneratePrice: function () {
+    return parseInt(Math.random() * 300);
   },
 
 })

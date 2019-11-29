@@ -1,16 +1,25 @@
 <!--pages/self/self.wxml-->
-<text>pages/self/self.wxml</text>
-<open-data type="groupName" open-gid="xxxxxx"></open-data>
-<button>
-  <open-data style="border-radius:50%;overflow:hidden;display:block;width:80px;height:80px;" mode="aspectFit" type="userAvatarUrl"></open-data>
-</button>
-<open-data type="userGender" lang="zh_CN"></open-data>
-<button>
-  <open-data type="userNickName" lang="zh_CN"></open-data>
-</button>
+<view class="root">
+  <view class="user">
+    <open-data class="icon" style="border-radius:10%;overflow:hidden;display:block;width:80rpx;height:80rpx;" mode="aspectFit" type="userAvatarUrl"></open-data>
 
-<button type="default" size="{{primarySize}}" bindtap="gotoMyPublish"> 我的发布 </button>
+    <open-data class="nickname" type="userNickName" lang="zh_CN"></open-data>
+  </view>
 
-<button type="default" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo2"> 我要求购 </button>
+  <!-- 我要发布 -->
+  <view class="new">
+    <view class="new_title">
+      <text class="new_title_text">我要发布</text>
+    </view>
+    <view class="new_good">
+    </view>
+    <view class="new_need">
+    </view>
+  </view>
 
-<button type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"> 我要出售 </button>
+  <button type="default" size="{{primarySize}}" bindtap="gotoMyPublish"> 我的发布 </button>
+
+  <button type="default" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo2"> 我要求购 </button>
+
+  <button type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"> 我要出售 </button>
+</view>

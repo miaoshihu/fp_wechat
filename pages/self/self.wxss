@@ -1,7 +1,68 @@
 /* pages/self/self.wxss */
 
-.icona {
-  height: 10rpx;
-  width: 10rpx;
-  border-radius: 50%;
+.root {
+  width: 100%;
+  height: 100%;
+  /* background-color: #f0f000; */
+  flex-direction: column;
+}
+
+.user {
+  width: 690rpx;
+  height: 100rpx;
+  margin-top: 40rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #f00;
+}
+
+.icon {
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.nickname {
+  width: 200rpx;
+  margin-left: 20rpx;
+}
+
+.new {
+  width: 100%;
+  height: 280rpx;
+  background-color: #00f;
+  margin-top: 20rpx;
+}
+
+.new_title {
+  width: 200rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+  align-items: center;
+  display: flex;
+  background-color: #f00;
+}
+
+.new_title_text {
+  width: 100%;
+  color: #8A8A8A;
+}
+
+.new_good {
+  width: 690rpx;
+  height: 100rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: #097730;
+}
+
+.new_need {
+  width: 690rpx;
+  height: 100rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: #f07730;
 }

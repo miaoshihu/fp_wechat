@@ -1,8 +1,28 @@
 <!--index.wxml-->
-<scroll-view lower-threshold="10" scroll-y="true" style="height:100%;" bindscrolltolower="lower">
-  <button bindtap="bindViewTapUpload"> Upload Image </button>
-  <view class="list-item item{{item.index}}" wx:for="{{list}}" wx:key="index">
-    <text>{{item.type}}</text>
-    <text>{{item.title}}</text>
-  </view>
-</scroll-view>
+<view>
+  <scroll-view class="root" scroll-y="true" style="height:100%;">
+    <view class="list-item" wx:for="{{list}}" wx:key="index" bindtap="handleClick" data-id="{{item.id}}" data-title="{{item.title}}">
+
+      <view class="right_con">
+        <view class="right_con_title1">
+          <text class="title1">{{item.title}}</text>
+          <text class="price">{{item.price}}</text>
+        </view>
+
+        <view class="right_con_title2">
+          <text class="short_desc">{{item.desc}}</text>
+        </view>
+
+        <view class="right_con_title3">
+          <view class="right_con_title3_left">
+            <text class="address">{{item.address}}</text>
+            <text class="user">{{item.nickname}}</text>
+          </view>
+
+          <text class="time">{{item.time}}</text>
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>
