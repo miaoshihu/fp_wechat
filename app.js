@@ -54,8 +54,9 @@ App({
           },
           success: function(res) {
             // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
+            const app = getApp()
             var openId = res.data.openid
-            gOpenId = openId;
+            app.globalData.gOpenId = openId;
             console.log("openId = " + openId)
             console.log(res.statusCode)
             console.log("You did it!")
@@ -79,7 +80,7 @@ App({
             wx.hideToast();
             wx.showModal({
               title: '网络获取失败',
-              content: "openid 获取失败",
+              content: "openid 获取失败 " + res.errMsg,
               showCancel: false,
               success: function (res) { }
             })

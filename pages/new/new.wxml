@@ -58,18 +58,6 @@
     <view class="line"></view>
 
     <view class="item">
-      <view class="item_1">称呼</view>
-      <input class="item_2" name="first_name" placeholder="先生/小姐" />
-
-      <radio-group name="gender" class="radio-group" >
-        <radio value="male" checked="true">先生</radio>
-        <radio value="female" checked="false">小姐</radio>
-      </radio-group>
-    </view>
-
-    <view class="line"></view>
-
-    <view class="item">
       <view class="item_1">电话</view>
       <input name="phone" class="item_2" type="number" maxlength="11" placeholder="你的电话号码" />
     </view>
