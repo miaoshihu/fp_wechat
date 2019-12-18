@@ -24,17 +24,13 @@ Page({
     log("loadData")
 
     var _this = this;
-    var mylist2 = this.getList(curPage++);
-
-    _this.setData({
-      title: "....",
-      list: mylist2,
-    })
+    this.getList(curPage++);
   },
 
   getList: function(page) {
     console.log("getList page = " + page)
     var mydata = {}
+    var _this = this;
     mydata.page = page;
     console.log(mydata)
     wx.request({
@@ -43,12 +39,46 @@ Page({
       success: function (res) {
         // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
         // console.log(res.statusCode)
+        if (res.data.code != 0) {
+          console.log("code != 0 !!!!!!!!!!");
+          return;
+        }
+        var newlist = _this.parseData(res.data.data);
+        _this.setData({
+          list: newlist,
+        })
         console.log("getList success code : " + JSON.stringify(res.data))
       },
       fail: function (res) {
         log("getList faild " + res);
       }
     })
+  },
+
+  parseData: function(data) {
+    console.log("parseData1 = " + data);
+    console.log("parseData2 = " + JSON.stringify(data));
+    
+    var curList = this.data.list;
+    var length = this.data.list.length;
+
+    for (var k = 0; k < data.length; k++) {
+      var item = data[k];
+      console.log("pushg " + item.id + " " + item.name + " " + item.user_nickname);
+      curList.push({
+        id: item.id,
+        title: item.name,
+        desc: item.short_desc,
+        address: item.address,
+        nickname: item.user_nickname,
+        time: item.create_time,
+        price: item.price,
+        image1: item.image1,
+        image2: item.image2,
+      });
+      
+    }
+    return curList;
   },
 
   handleClick: function(e) {
@@ -61,13 +91,7 @@ Page({
 
   onReachBottom: function() {
     log("onReachBottom");
-    var mylist = this.testAddList();
-    var _this = this;
 
-    _this.setData({
-      title: "....",
-      list: mylist,
-    })
   },
 
   launchPage: function(id, title) {
@@ -75,25 +99,6 @@ Page({
     wx.navigateTo({
       url: '../detail/detail?id=' + id + "&title=" + title,
     })
-  },
-
-  testAddList: function() {
-    var curList = this.data.list;
-    var length = this.data.list.length;
-    for (var i = 0; i < 7; i++) {
-      curList.push({
-        id: (i + length),
-        title: "物体 " + (i + length),
-        desc: "刚买的一个月，这个可好用了，一直舍不得用，现在卖出去，大家不要抢的太凶",
-        address: "花香镇",
-        nickname: "Alice",
-        time: "11-26 08:50",
-        price: "¥ " + 1,
-        image1: "",
-        image2: "",
-      });
-    }
-    return curList;
   },
 
 })
