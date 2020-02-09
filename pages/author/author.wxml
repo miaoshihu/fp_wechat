@@ -1,0 +1,43 @@
+<!--pages/new/new.wxml-->
+<!-- 
+  1.scrollview
+  2.竖向布局
+  3.每一项，横向布局
+  4.名称: 凤凰自行车
+  5.金额: 100元
+  6.电话: 1009203900
+  7.一句话简介: 这个车真是好
+  8.详细描述
+  横向布局
+-->
+<scroll-view lower-threshold="10" scroll-y="true" style="height:100%;" bindscrolltolower="lower">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+  
+    <view class="item">
+      <view class="item_1">区域</view>
+      <input class="item_2" name="town" placeholder="城区/镇" />
+    </view>
+    
+    <view class="line"></view>
+    
+    <view class="item">
+      <view class="item_1">地址</view>
+      <input class="item_2" name="address" placeholder="小区/村" />
+    </view>
+
+    <view class="line"></view>
+
+    <view class="item">
+      <view class="item_1">电话</view>
+      <input name="phone" class="item_2" type="number" maxlength="11" placeholder="你的电话号码" />
+    </view>
+
+    <view class="line"></view>
+
+    <view class="item">
+      <button formType="submit">提交</button>
+      <button formType="reset">重置</button>
+    </view>
+    <view class="bottom"></view>
+  </form>
+</scroll-view>

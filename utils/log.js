@@ -30,6 +30,10 @@ const log_mylist = str => {
   console.log("Mylist => " + str);
 }
 
+const log_user = str => {
+  console.log("User => " + str)
+}
+
 module.exports = {
   log_index: log_index,
   log_detail: log_detail,
@@ -39,4 +43,5 @@ module.exports = {
   log_self: log_self,
   log_app: log_app,
   log_mylist: log_mylist,
+  log_user: log_user,
 }

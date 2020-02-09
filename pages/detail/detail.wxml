@@ -1,15 +1,55 @@
 <!--pages/detail/index.wxml-->
 <view class="detail_layout">
-  <text>{{id}}</text>
-  <text>{{title}}</text>
+  <!-- <text>{{id}}</text>
+  <text>{{name}}</text>
   <text>{{price}}元</text>
   <text>{{short_desc}}</text>
-  <text>{{desc}}</text>
+  <text>{{descs}}</text>
 
   <view class="phone_number" bindtap="phoneCall" data-phone="{{phone}}">
     <text>{{phone}}</text>
   </view>
   <text>{{address}}</text>
   <text>{{image1}}</text>
-  <text>{{image2}}</text>
+  <text>{{image2}}</text> -->
+  <scroll-view class="scrollview" scroll-y="true" style="height:90%;">
+    <view class="top">
+      <view class="line1">
+        <text class="name">{{name}}</text>
+        <text class="price">{{price}}</text>
+      </view>
+      <view class="line2">
+        <text class="short_desc">{{short_desc}}</text>
+      </view>
+      <view class="line3">
+        <view class="left">
+          <text class="address">{{address}}</text>
+          <text class="user">{{nickname}}</text>
+        </view>
+
+        <text class="time">{{time}}</text>
+      </view>
+    </view>
+
+    <view class="bottom">
+      <view class="linea">
+        <text class="title">物品详情</text>
+      </view>
+      <view class="lineb">
+        <text class="descs">{{descs}}</text>
+      </view>
+      <view class="linec">
+        <image class="image" mode="aspectFill" src="{{image1}}"></image>
+      </view>
+      <view class="linec">
+        <image class="image" mode="aspectFill" src="{{image2}}"></image>
+      </view>
+      <view class="blank">
+      </view>
+    </view>
+  </scroll-view>
+  <view class="bottom_line" style="height:10%;">
+    <button open-type="share" size="{{primarySize}}"> 分享 </button>
+    <button type="default" size="{{primarySize}}" bindtap="phoneCall"> 拨打电话{{phone}} </button>
+  </view>
 </view>

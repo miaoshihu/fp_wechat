@@ -18,15 +18,24 @@ Page({
 
   formSubmit: function(e) {
 
+    var _this = this;
+
     const app = getApp();
 
     e.detail.value.user_id = app.globalData.gOpenId;
-    e.detail.value.user_nickname = app.globalData.gUserInfo.nickName;
+    e.detail.value.user_nickname = app.globalData.nickname;
+    e.detail.value.address = app.globalData.address;
+    e.detail.value.phone = app.globalData.phone;
+    e.detail.value.town = app.globalData.town;
+
     e.detail.value.image1 = this.data.image1;
     e.detail.value.image2 = this.data.image2;
 
     log("fromSubmit image1 = " + this.data.image1);
     log("fromSubmit image2 = " + this.data.image2);
+    log("fromSubmit address = " + e.detail.value.address);
+    log("fromSubmit phone = " + e.detail.value.phone);
+
 
     log('fromSubmit ' + JSON.stringify(e.detail.value))
 
@@ -37,6 +46,7 @@ Page({
         // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
         console.log(res.statusCode)
         console.log("submit success code : " + JSON.stringify(res.data))
+        _this.showToastSuccess();
       },
       fail: function (res) {
         log("submit faild " + res);
@@ -122,11 +132,12 @@ Page({
           image_path_1: path,
           image1: data.filename,
         });
+        _this.showToastSuccess();
       },
       fail: function (res) {
 
         log("upload error !!!!!!!!!!!!!!!!!  " + res.errMsg)
-
+        _this.showToastFailed();
       }
     });
   },
@@ -151,9 +162,11 @@ Page({
           image_path_2: path,
           image2: data.filename,
         });
+        _this.showToastSuccess();
       },
       fail: function (res) {
 
+        _this.showToastFailed();
         log("upload error !!!!!!!!!!!!!!!!!  " + res.errMsg)
 
       }
@@ -170,7 +183,12 @@ Page({
   },
 
   showToastSuccess: function (res) {
-
+    wx.showToast({
+      title: '上传成功',
+      icon: 'success',
+      mask: true,
+      duration: 1000
+    })
   },
 
   showToastFailed: function(res) {

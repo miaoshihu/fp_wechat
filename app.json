@@ -5,7 +5,8 @@
     "pages/needs/needs",
     "pages/self/self",
     "pages/new/new",
-    "pages/mylist/mylist"
+    "pages/mylist/mylist",
+    "pages/author/author"
   ],
   "window": {
     "backgroundTextStyle": "dark",

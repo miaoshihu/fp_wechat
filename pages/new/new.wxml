@@ -51,20 +51,6 @@
     <view class="line"></view>
 
     <view class="item">
-      <view class="item_1">地址</view>
-      <input class="item_2" name="address" placeholder="小区名字" />
-    </view>
-
-    <view class="line"></view>
-
-    <view class="item">
-      <view class="item_1">电话</view>
-      <input name="phone" class="item_2" type="number" maxlength="11" placeholder="你的电话号码" />
-    </view>
-
-    <view class="line"></view>
-
-    <view class="item">
       <button formType="submit">Submit</button>
       <button formType="reset">Reset</button>
     </view>

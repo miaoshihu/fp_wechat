@@ -11,9 +11,33 @@
     <view class="new_title">
       <text class="new_title_text">我要发布</text>
     </view>
-    <view class="new_good">
+    <view class="split"></view>
+    <view class="new_item" type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+      <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+      <text class="nickname">我要出售</text>
     </view>
-    <view class="new_need">
+    <view class="split_left"></view>
+    <button class="new_item" type="default" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo2">
+          <!-- <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+      <text class="nickname">我要求购</text> -->
+    </button>
+  </view>
+
+    <!-- 我要发布 -->
+  <view class="new">
+    <view class="new_title">
+      <text class="new_title_text">我的发布</text>
+    </view>
+    <view class="split"></view>
+    <view class="new_item">
+      <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+      <text cl1ass="nickname">第一条</text>
+      <image class="more" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+    </view>
+    <view class="split_left"></view>
+    <view class="new_item">
+          <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+      <text class="nickname">第二条</text>
     </view>
   </view>
 

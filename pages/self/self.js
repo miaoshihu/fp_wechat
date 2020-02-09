@@ -11,12 +11,46 @@ Page({
   },
 
   onLoad: function (options) {
+    log("onLoad");
   },
 
   gotoPubish: function (e) {
-    wx.navigateTo({
-      url: '../new/new'
+    const app = getApp();
+    var point = app.globalData.point;
+    if (point == null) {
+      log("gotoPubish point = null , return!");
+      wx.showToast({
+        title: '初始化失败',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+
+    if (point <= 10) {
+      log("gotoPubish point = " + point + "  < 10 , return!");
+      wx.showToast({
+        title: '积分不足',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+
+    wx.getStorage({
+      key: 'point',
+      success(res) {
+        wx.navigateTo({
+          url: '../new/new'
+        })
+      },
+      fail: function (res) {
+        wx.navigateTo({
+          url: '../author/author'
+        })
+      }
     })
+
   },
 
   gotoPubish2: function (e) {

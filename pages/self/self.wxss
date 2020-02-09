@@ -3,37 +3,66 @@
 .root {
   width: 100%;
   height: 100%;
-  /* background-color: #f0f000; */
+  padding-top: 40rpx;
+  background-color: gray;
   flex-direction: column;
 }
 
 .user {
   width: 690rpx;
   height: 100rpx;
-  margin-top: 40rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
   align-content: center;
   align-items: center;
   display: flex;
-  background-color: #f00;
+  background-color: #FFF;
+}
+
+.new_item {
+  width: 690rpx;
+  height: 100rpx;
+  /* background-color: #00f; */
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  align-items: center;
+  display: flex;
 }
 
 .icon {
-  height: 60rpx;
-  width: 60rpx;
+  height: 80rpx;
+  width: 80rpx;
 }
 
 .nickname {
-  width: 200rpx;
+  width: 520rpx;
   margin-left: 20rpx;
+  /* background-color: #ff0; */
 }
 
 .new {
   width: 100%;
   height: 280rpx;
-  background-color: #00f;
   margin-top: 20rpx;
+  background-color: #FFF;
+}
+
+.more {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.split {
+  width: 750rpx;
+  height: 1px;
+  background-color: #f4f4f4;
+}
+
+.split_left {
+  width: 630rpx;
+  height: 1px;
+  margin-left: 120rpx;
+  background-color: #f4f4f4;
 }
 
 .new_title {
@@ -43,7 +72,6 @@
   margin-left: 30rpx;
   align-items: center;
   display: flex;
-  background-color: #f00;
 }
 
 .new_title_text {
