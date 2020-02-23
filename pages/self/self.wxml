@@ -2,16 +2,20 @@
 <view class="root">
 
   <block wx:if="{{have_userinfo==false}}">
-    <view class="wx_auth">
-      <text class="wx_auth_desc">微信登录后，可以发布闲置物品</text>
-      <button class="wx_auth_button" type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">使用微信登录</button>
+    <view class="wx_userinfo_auth">
+      <text class="wx_userinfo_auth_desc">微信登录后，可以发布闲置物品</text>
+      <button class="wx_userinfo_auth_button" type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">使用微信登录</button>
     </view>
   </block>
   <block wx:else>
 
     <view class="user">
-      <open-data class="icon" style="border-radius:10%;overflow:hidden;display:block;width:80rpx;height:80rpx;" mode="aspectFit" type="userAvatarUrl"></open-data>
-      <open-data class="nickname" type="userNickName" lang="zh_CN"></open-data>
+      <open-data class="icon" style="border-radius:10%;overflow:hidden;display:block;width:126rpx;height:126rpx;" mode="aspectFit" type="userAvatarUrl"></open-data>
+      <view class="user_middle" >
+        <open-data class="user_middle_text" type="userNickName" lang="zh_CN"></open-data>
+        <text class="user_middle_text text_small">电话 102030400</text>
+        <text class="user_middle_text text_small">地址 xxxxxxxxx</text>
+      </view>
     </view>
 
     <!-- 我要发布 -->
@@ -21,12 +25,10 @@
       </view>
       <view class="split"></view>
       <view class="new_item">
-        <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
         <text cl1ass="nickname">第一条</text>
       </view>
       <view class="split_left"></view>
       <view class="new_item">
-        <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
         <text class="nickname">第二条</text>
       </view>
     </view>
@@ -38,12 +40,10 @@
       </view>
       <view class="split"></view>
       <view class="new_item">
-        <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
         <text cl1ass="nickname">第一条</text>
       </view>
       <view class="split_left"></view>
       <view class="new_item">
-        <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
         <text class="nickname">第二条</text>
       </view>
     </view>

@@ -175,3 +175,10 @@
   align-items: center;
   justify-content: center;
 }
+.some_margin1 {
+  width: 200rpx;
+}
+
+.some_margin2 {
+  width: 420rpx;
+}

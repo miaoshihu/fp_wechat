@@ -17,12 +17,12 @@ Page({
 
   onLoad: function (options) {
     log("onLoad");
+    this.loadData();
 
     wx.setNavigationBarTitle({
       title: "出售"
-    })
+    });
 
-    this.loadData();
   },
 
   loadData: function () {
