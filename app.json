@@ -4,9 +4,9 @@
     "pages/detail/detail",
     "pages/needs/needs",
     "pages/self/self",
-    "pages/new/new",
     "pages/mylist/mylist",
-    "pages/author/author"
+    "pages/author/author",
+    "pages/new/new"
   ],
   "window": {
     "backgroundTextStyle": "dark",

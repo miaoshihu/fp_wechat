@@ -10,50 +10,37 @@
   8.详细描述
   横向布局
 -->
-<scroll-view lower-threshold="10" scroll-y="true" style="height:100%;" bindscrolltolower="lower">
+<scroll-view class="root" lower-threshold="10" scroll-y="true" style="height:100%;" bindscrolltolower="lower">
   <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="item">
       <view class="item_1">名称</view>
       <input class="item_2" name="name" placeholder="货物名称" auto-focus/>
     </view>
 
-    <view class="line"></view>
-
-    <view class="item">
-      <view class="item_1">简介</view>
-      <input class="item_2" name="short_desc" placeholder="一句话描述"/>
-    </view>
-
-    <view class="line"></view>
-
     <view class="item">
       <view class="item_1">价格</view>
       <input class="item_2" name="price" type="digit" placeholder="出售不能高于此价格" />
     </view>
 
-    <view class="line"></view>
-
     <view class="item_desc">
       <view class="item_1">详细</view>
-      <textarea class="item_2" name="desc" maxlength="50" placeholder="请简要描写，文字控制在50字以内" />
-    </view>
+      <view class="item_2_desc_container">
+        <textarea class="item_2_desc1" name="desc" maxlength="50" placeholder="请简要描写，文字控制在50字以内" />
+      </view>
 
-    <view class="line"></view>
+    </view>
 
     <view class="item_desc">
       <view class="item_1">照片</view>
-      <view class="item_2">
+      <view class="item_2_desc_container">
         <image bindtap="addImage1" class="image" mode="aspectFit" src="{{image_path_1}}"></image>
         <image bindtap="addImage2" class="image" mode="aspectFit" src="{{image_path_2}}"></image>
       </view>
     </view>
 
-    <view class="line"></view>
-
-    <view class="item">
-      <button formType="submit">Submit</button>
-      <button formType="reset">Reset</button>
+    <view class="item2">
+      <button class="some_margin" type="primary" size="{{primarySize}}" formType="submit">立即发布</button>
+      <!-- <button class="some_margin" type="default" size="{{primarySize}}" formType="reset">重置</button> -->
     </view>
-    <view class="bottom"></view>
   </form>
 </scroll-view>
