@@ -1,49 +1,60 @@
 <!--pages/self/self.wxml-->
 <view class="root">
-  <view class="user">
-    <open-data class="icon" style="border-radius:10%;overflow:hidden;display:block;width:80rpx;height:80rpx;" mode="aspectFit" type="userAvatarUrl"></open-data>
 
-    <open-data class="nickname" type="userNickName" lang="zh_CN"></open-data>
-  </view>
+  <block wx:if="{{have_userinfo==false}}">
+    <view class="wx_auth">
+      <text class="wx_auth_desc">微信登录后，可以发布闲置物品</text>
+      <button class="wx_auth_button" type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">使用微信登录</button>
+    </view>
+  </block>
+  <block wx:else>
 
-  <!-- 我要发布 -->
-  <view class="new">
-    <view class="new_title">
-      <text class="new_title_text">我要发布</text>
+    <view class="user">
+      <open-data class="icon" style="border-radius:10%;overflow:hidden;display:block;width:80rpx;height:80rpx;" mode="aspectFit" type="userAvatarUrl"></open-data>
+      <open-data class="nickname" type="userNickName" lang="zh_CN"></open-data>
     </view>
-    <view class="split"></view>
-    <view class="new_item" type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
-      <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
-      <text class="nickname">我要出售</text>
-    </view>
-    <view class="split_left"></view>
-    <button class="new_item" type="default" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo2">
-          <!-- <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
-      <text class="nickname">我要求购</text> -->
-    </button>
-  </view>
 
     <!-- 我要发布 -->
-  <view class="new">
-    <view class="new_title">
-      <text class="new_title_text">我的发布</text>
+    <view class="new">
+      <view class="new_title">
+        <text class="new_title_text">我的出售</text>
+      </view>
+      <view class="split"></view>
+      <view class="new_item">
+        <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+        <text cl1ass="nickname">第一条</text>
+      </view>
+      <view class="split_left"></view>
+      <view class="new_item">
+        <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+        <text class="nickname">第二条</text>
+      </view>
     </view>
-    <view class="split"></view>
-    <view class="new_item">
-      <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
-      <text cl1ass="nickname">第一条</text>
-      <image class="more" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+
+    <!-- 我要发布 -->
+    <view class="new">
+      <view class="new_title">
+        <text class="new_title_text">我的求购</text>
+      </view>
+      <view class="split"></view>
+      <view class="new_item">
+        <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+        <text cl1ass="nickname">第一条</text>
+      </view>
+      <view class="split_left"></view>
+      <view class="new_item">
+        <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
+        <text class="nickname">第二条</text>
+      </view>
     </view>
-    <view class="split_left"></view>
-    <view class="new_item">
-          <image class="icon" mode="aspectFill" src="../../imgs/add.jpeg"></image>
-      <text class="nickname">第二条</text>
+
+    <!-- <button type="default" size="{{primarySize}}" bindtap="gotoMyPublish"> 我的发布 </button> -->
+    <view class="panel">
+      <button class="some_margin" type="primary" size="{{primarySize}}" bindtap="gotoPubish"> 我要出售 </button>
+      <button class="some_margin" type="default" size="{{primarySize}}" bindtap="gotoPubish2"> 我要求购 </button>
+
     </view>
-  </view>
+  </block>
 
-  <button type="default" size="{{primarySize}}" bindtap="gotoMyPublish"> 我的发布 </button>
 
-  <button type="default" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo2"> 我要求购 </button>
-
-  <button type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"> 我要出售 </button>
 </view>

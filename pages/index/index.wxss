@@ -2,19 +2,19 @@
 .root {
   width: 100%;
   height: 100%;
-  background-color: #FaFaFa;
+  background-color: #FFF;
 }
 
 .list-item {
   width: 690rpx;
-  height: 260rpx;
+  height: 250rpx;
   flex-direction: row;
   display: flex;
   position: relative;
   color: #999;
   margin-left: 30rpx;
   margin-right: 30rpx;
-  border-top: 1px #f4f4f4 solid;
+  border-top: 1px #f0f0f0 solid;
 }
 
 .left_con {

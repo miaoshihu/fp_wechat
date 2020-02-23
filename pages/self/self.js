@@ -12,9 +12,17 @@ Page({
 
   onLoad: function (options) {
     log("onLoad");
+    this.setData({
+      have_userinfo: false,
+    })
   },
 
   gotoPubish: function (e) {
+
+    // wx.navigateTo({
+    //   url: '../new/new'
+    // })
+
     const app = getApp();
     var point = app.globalData.point;
     if (point == null) {
@@ -68,33 +76,15 @@ Page({
   onGotUserInfo: function (e) {
     log("onGotUserInfo");
     if (e.detail.userInfo != null) {
-      log("userinfo != null " + e.detail.userInfo.nickName);
+      log("userinfo != null " + e.detail.userInfo);
       var app = getApp();
       app.globalData.gUserInfo = e.detail.userInfo;
-
-      this.gotoPubish();
+      this.setData({
+        have_userinfo: true,
+      })
     } else {
       log("userinfo = null");
     }
-    log("error: " + e.detail.errMsg)
-    log("userInfo: " + e.detail.userInfo)
-    log("rawData: " + e.detail.rawData)
-  },
-
-  onGotUserInfo2: function (e) {
-    log("onGotUserInfo2");
-    if (e.detail.userInfo != null) {
-      log("userinfo != null " + e.detail.userInfo.nickName);
-      var app = getApp();
-      app.globalData.gUserInfo = e.detail.userInfo;
-
-      this.gotoPubish2();
-    } else {
-      log("userinfo = null");
-    }
-    log("error: " + e.detail.errMsg)
-    log("userInfo: " + e.detail.userInfo)
-    log("rawData: " + e.detail.rawData)
   },
 
   /**

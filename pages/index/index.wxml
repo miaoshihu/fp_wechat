@@ -13,7 +13,7 @@
         </view>
 
         <view class="right_con_title2">
-          <text class="short_desc">{{item.desc}}</text>
+          <text class="short_desc">{{item.descs}}</text>
         </view>
 
         <view class="right_con_title3">

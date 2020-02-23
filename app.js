@@ -143,6 +143,9 @@ App({
   },
 
   globalData: {
+
+    is_wx_auth: false,
+
     gUserInfo: null,
     gOpenId: null,
     nickname: null,

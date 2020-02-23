@@ -36,7 +36,13 @@ var config = {
     // 下载示例图片接口
     downloadExampleUrl: `https://${host}/static/weapp.jpg`
     goodSubmitUrl: `https://${host}/fps/good/submit`,
+    goodListUrl: `https://${host}/fps/good/getlist`,
+    goodUrl: `https://${host}/fps/good/get`,
 
+    needSubmitUrl: `https://${host}/fps/need/submit`,
+
+    authorSubmitUrl: `https://${host}/fps/author/submit`,
+    authorGetUrl: `https://${host}/fps/author/get`,
 };
 
 module.exports = config

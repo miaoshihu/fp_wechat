@@ -10,13 +10,13 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#CDC5BF",
+    "navigationBarBackgroundColor": "#EEE",
     "navigationBarTitleText": "旧货",
     "navigationBarTextStyle": "black",
     "onReachBottomDistance": 300
   },
   "tabBar": {
-    "backgroundColor": "#CDC5BF",
+    "backgroundColor": "#FFF",
     "list": [
       {
         "pagePath": "pages/index/index",

@@ -71,7 +71,7 @@ Page({
       curList.push({
         id: item.id,
         title: item.name,
-        desc: item.short_desc,
+        descs: item.descs,
         address: item.address,
         nickname: item.user_nickname,
         time: item.create_time,
