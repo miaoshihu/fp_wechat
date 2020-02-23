@@ -14,6 +14,7 @@ Page({
     price: "",
     short_desc: "",
     descs: "",
+    descs_title: "",
     phone: "",
     address: "",
     image1: "",
@@ -46,6 +47,7 @@ Page({
           log("loadData id = " + id + "success , but code = " + res.data.code);
           return;
         }
+        
         var good = res.data.data;
         log("loadData id = " + id + "success , good = " + JSON.stringify(good));
         _this.setData({
@@ -54,6 +56,7 @@ Page({
           price: good.price,
           short_desc: good.short_desc,
           descs: good.descs,
+          descs_title: "物品详情",
           phone: good.phone,
           nickname: good.user_nickname,
           time: _this.getDateTime(good.time_stamp),

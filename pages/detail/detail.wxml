@@ -18,9 +18,6 @@
         <text class="name">{{name}}</text>
         <text class="price">{{price}}</text>
       </view>
-      <view class="line2">
-        <text class="short_desc">{{short_desc}}</text>
-      </view>
       <view class="line3">
         <view class="left">
           <text class="address">{{address}}</text>
@@ -30,11 +27,14 @@
         <text class="time">{{time}}</text>
       </view>
     </view>
+    
+    <view class="split"></view>
 
     <view class="bottom">
       <view class="linea">
-        <text class="title">物品详情</text>
+        <text class="title">{{descs_title}}</text>
       </view>
+
       <view class="lineb">
         <text class="descs">{{descs}}</text>
       </view>
