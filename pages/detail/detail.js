@@ -26,6 +26,9 @@ Page({
    */
   onLoad: function(options) {
     log("onLoad " + options.id + " " + options.title);
+    wx.setNavigationBarTitle({
+      title: "详情"
+    })
     this.loadData(options.id);
   },
 

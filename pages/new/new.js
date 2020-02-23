@@ -16,6 +16,13 @@ Page({
     image2: '',
   },
 
+  onLoad: function (options) {
+    log("onLoad");
+    wx.setNavigationBarTitle({
+      title: "我要出售"
+    })
+  },
+
   formSubmit: function(e) {
 
     var _this = this;
@@ -201,7 +208,4 @@ Page({
     })
   },
 
-  onLoad: function(options) {
-    log("onLoad");
-  },
 })

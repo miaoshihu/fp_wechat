@@ -10,6 +10,13 @@ Page({
    */
   data: {
   },
+  
+  onLoad: function (options) {
+    log("onLoad");
+    wx.setNavigationBarTitle({
+      title: "个人信息完善"
+    })
+  },
 
   formSubmit: function(e) {
 
@@ -58,7 +65,4 @@ Page({
     })
   },
 
-  onLoad: function(options) {
-    log("onLoad");
-  },
 })

@@ -12,6 +12,10 @@ Page({
 
   onLoad: function (options) {
     log("onLoad");
+    wx.setNavigationBarTitle({
+      title: "我的"
+    })
+
     this.setData({
       have_userinfo: false,
     })

@@ -16,7 +16,9 @@ Page({
 
   onLoad: function (options) {
     log("onLoad");
-
+    wx.setNavigationBarTitle({
+      title: "求购"
+    })
     this.loadData();
   },
 

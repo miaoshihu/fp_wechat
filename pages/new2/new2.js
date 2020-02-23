@@ -11,6 +11,13 @@ Page({
   data: {
   },
 
+  onLoad: function (options) {
+    log("onLoad");
+    wx.setNavigationBarTitle({
+      title: "我要求购"
+    })
+  },
+
   formSubmit: function(e) {
 
     const app = getApp();
@@ -38,7 +45,4 @@ Page({
     log('formReset')
   },
 
-  onLoad: function(options) {
-    log("onLoad")
-  },
 })

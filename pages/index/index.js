@@ -18,6 +18,10 @@ Page({
   onLoad: function (options) {
     log("onLoad");
 
+    wx.setNavigationBarTitle({
+      title: "出售"
+    })
+
     this.loadData();
   },
 
