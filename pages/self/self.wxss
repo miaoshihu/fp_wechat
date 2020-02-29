@@ -151,15 +151,10 @@
 }
 
 .new_item_left {
-  width: 60%;
-}
-
-.new_item_middle {
-  width: 20%;
-  text-align: center;
+  width: 70%;
 }
 
 .new_item_right {
-  width: 20%;
+  width: 30%;
   text-align: right;
 }
