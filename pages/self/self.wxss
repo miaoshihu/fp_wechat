@@ -91,7 +91,7 @@
 }
 
 .new_title {
-  width: 200rpx;
+  width: 690rpx;
   height: 80rpx;
   font-size: 30rpx;
   margin-left: 30rpx;
@@ -100,8 +100,14 @@
 }
 
 .new_title_text {
-  width: 100%;
+  width: 80%;
   color: #8a8a8a;
+}
+
+.new_title_more {
+  width: 20%;
+  color: #8a8a8a;
+  text-align: right;
 }
 
 .wx_userinfo_auth_desc {
@@ -142,4 +148,18 @@
   width: 80%;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
+}
+
+.new_item_left {
+  width: 60%;
+}
+
+.new_item_middle {
+  width: 20%;
+  text-align: center;
+}
+
+.new_item_right {
+  width: 20%;
+  text-align: right;
 }

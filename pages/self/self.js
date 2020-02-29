@@ -40,15 +40,15 @@ Page({
       return;
     }
 
-    if (point <= 10) {
-      log("gotoPubish point = " + point + "  < 10 , return!");
-      wx.showToast({
-        title: '积分不足',
-        icon: 'none',
-        duration: 2000
-      })
-      return;
-    }
+    // if (point <= 10) {
+    //   log("gotoPubish point = " + point + "  < 10 , return!");
+    //   wx.showToast({
+    //     title: '积分不足',
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   return;
+    // }
 
     wx.getStorage({
       key: 'point',
@@ -72,7 +72,15 @@ Page({
     })
   },
 
-  gotoMyPublish: function (e) {
+  gotoMyPublish1: function (e) {
+    log("gotoMyPublish1");
+    wx.navigateTo({
+      url: '../mylist/mylist'
+    })
+  },
+
+  gotoMyPublish2: function (e) {
+    log("gotoMyPublish2");
     wx.navigateTo({
       url: '../mylist/mylist'
     })

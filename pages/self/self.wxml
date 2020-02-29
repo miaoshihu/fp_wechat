@@ -11,7 +11,7 @@
 
     <view class="user">
       <open-data class="icon" style="border-radius:10%;overflow:hidden;display:block;width:126rpx;height:126rpx;" mode="aspectFit" type="userAvatarUrl"></open-data>
-      <view class="user_middle" >
+      <view class="user_middle">
         <open-data class="user_middle_text" type="userNickName" lang="zh_CN"></open-data>
         <text class="user_middle_text text_small">电话 102030400</text>
         <text class="user_middle_text text_small">地址 xxxxxxxxx</text>
@@ -20,31 +20,65 @@
 
     <!-- 我要发布 -->
     <view class="new">
-      <view class="new_title">
+      <view class="new_title" bindtap="gotoMyPublish1">
         <text class="new_title_text">我的出售</text>
+        <text class="new_title_more">更多</text>
       </view>
       <view class="split"></view>
       <view class="new_item">
-        <text cl1ass="nickname">第一条</text>
+        <view class="new_item_left">
+          <text cl1ass="nickname">出售 iphone 6s 手机</text>
+        </view>
+        <view class="new_item_middle">
+          <text cl1ass="nickname">分享</text>
+        </view>
+        <view class="new_item_right">
+          <text cl1ass="nickname">审核中</text>
+        </view>
       </view>
       <view class="split_left"></view>
       <view class="new_item">
-        <text class="nickname">第二条</text>
+        <view class="new_item_left">
+          <text cl1ass="nickname">出售 iphone 6s 手机</text>
+        </view>
+        <view class="new_item_middle">
+          <text cl1ass="nickname">分享</text>
+        </view>
+        <view class="new_item_right">
+          <text cl1ass="nickname">审核中</text>
+        </view>
       </view>
     </view>
 
     <!-- 我要发布 -->
     <view class="new">
-      <view class="new_title">
+      <view class="new_title" bindtap="gotoMyPublish2">
         <text class="new_title_text">我的求购</text>
+        <text class="new_title_more">更多</text>
       </view>
       <view class="split"></view>
       <view class="new_item">
-        <text cl1ass="nickname">第一条</text>
+        <view class="new_item_left">
+          <text cl1ass="nickname">求购 iphone 6s 手机</text>
+        </view>
+        <view class="new_item_middle">
+          <text cl1ass="nickname">分享</text>
+        </view>
+        <view class="new_item_right">
+          <text cl1ass="nickname">审核中</text>
+        </view>
       </view>
       <view class="split_left"></view>
       <view class="new_item">
-        <text class="nickname">第二条</text>
+        <view class="new_item_left">
+          <text cl1ass="nickname">求购 iphone 6s 手机</text>
+        </view>
+        <view class="new_item_middle">
+          <text cl1ass="nickname">分享</text>
+        </view>
+        <view class="new_item_right">
+          <text cl1ass="nickname">审核中</text>
+        </view>
       </view>
     </view>
 
