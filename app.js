@@ -11,6 +11,12 @@ App({
 
     log("onLaunch");
     this.getOpenId();
+    
+  },
+
+  onShow:function(options) {
+    log("onShow");
+    this.setHaveUserInfoDefaultValue();
   },
 
   getOpenId: function () {
@@ -55,11 +61,20 @@ App({
             log("getAuthorFromServer statuscode = " + res.statusCode)
             log("getAuthorFromServer author = " + JSON.stringify(author))
 
-            app.globalData.nickname = author.nickname;
             app.globalData.phone = author.phone;
             app.globalData.point = author.point;
             app.globalData.address = author.address;
             app.globalData.town = author.town;
+
+            wx.getStorage({
+              key: 'nickname',
+              success(res) {
+                app.globalData.nickname = res.data;
+              },
+              fail(res) {
+                app.globalData.nickname = author.nickname;
+              }
+            })
 
             wx.setStorage({
               key: "nickname",
@@ -142,11 +157,38 @@ App({
     })
   },
 
+  setHaveUserInfoDefaultValue: function () {
+    var _this = this;
+    wx.getStorage({
+      key: 'have_userinfo',
+      success(res) {
+        log('setHaveUserInfoDefaultValue have_userinfo = ' + res.data)
+        _this.setHaveUserInfo(res.data)
+      },
+      fail(res) {
+        log('onLsetHaveUserInfoDefaultValue  have_userinfo = false')
+        _this.setHaveUserInfo('false')
+      }
+    })
+  },
+
+  setHaveUserInfo: function (value) {
+    wx.setStorage({
+      key: "have_userinfo",
+      data: value,
+    });
+    log("setHaveUserInfo " + value);
+
+    const app = getApp()
+    app.globalData.have_userinfo = value;
+  },
+
   globalData: {
+
+    have_userinfo: null,
 
     is_wx_auth: false,
 
-    gUserInfo: null,
     gOpenId: null,
     nickname: null,
     phone: null,

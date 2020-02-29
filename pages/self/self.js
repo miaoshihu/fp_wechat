@@ -8,21 +8,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    have_userinfo: false
+    have_userinfo: null,
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     log("onLoad");
     wx.setNavigationBarTitle({
       title: "我的"
     })
 
     this.setData({
-      have_userinfo: false,
+      have_userinfo: getApp().globalData.have_userinfo
     })
+
   },
 
-  gotoPubish: function (e) {
+  gotoPubish: function(e) {
 
     // wx.navigateTo({
     //   url: '../new/new'
@@ -57,7 +58,7 @@ Page({
           url: '../new/new'
         })
       },
-      fail: function (res) {
+      fail: function(res) {
         wx.navigateTo({
           url: '../author/author'
         })
@@ -66,35 +67,32 @@ Page({
 
   },
 
-  gotoPubish2: function (e) {
+  gotoPubish2: function(e) {
     wx.navigateTo({
       url: '../new2/new2'
     })
   },
 
-  gotoMyPublish1: function (e) {
+  gotoMyPublish1: function(e) {
     log("gotoMyPublish1");
     wx.navigateTo({
       url: '../mylist/mylist'
     })
   },
 
-  gotoMyPublish2: function (e) {
+  gotoMyPublish2: function(e) {
     log("gotoMyPublish2");
     wx.navigateTo({
       url: '../mylist/mylist'
     })
   },
 
-  onGotUserInfo: function (e) {
+  onGotUserInfo: function(e) {
     log("onGotUserInfo");
     if (e.detail.userInfo != null) {
-      log("userinfo != null " + e.detail.userInfo);
-      var app = getApp();
-      app.globalData.gUserInfo = e.detail.userInfo;
-      this.setData({
-        have_userinfo: true,
-      })
+      log("userinfo != null " + JSON.stringify(e.detail.userInfo));
+      this.setNickname(e.detail.userInfo.nickName);
+      this.setHaveUserInfo('true');
     } else {
       log("userinfo = null");
     }
@@ -103,7 +101,29 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
-  }
+  },
+
+  setNickname: function(nickname) {
+    var app = getApp();
+    wx.setStorage({
+      key: "nickname",
+      data: nickname,
+    });
+    app.globalData.nickname = nickname;
+    log("setNickname " + nickname);
+  },
+
+  setHaveUserInfo: function(value) {
+    this.setData({
+      have_userinfo: value,
+    })
+    wx.setStorage({
+      key: "have_userinfo",
+      data: value,
+    });
+    log("setHaveUserInfo " + value);
+  },
+
 })

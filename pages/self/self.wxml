@@ -1,7 +1,8 @@
 <!--pages/self/self.wxml-->
 <view class="root">
-
-  <block wx:if="{{have_userinfo==false}}">
+  <block wx:if="{{have_userinfo==null}}">
+  </block>
+  <block wx:elif="{{have_userinfo=='false'}}">
     <view class="wx_userinfo_auth">
       <text class="wx_userinfo_auth_desc">微信登录后，可以发布闲置物品</text>
       <button class="wx_userinfo_auth_button" type="primary" size="{{primarySize}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">使用微信登录</button>
