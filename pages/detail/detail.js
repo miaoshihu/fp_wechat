@@ -2,6 +2,7 @@
 
 const log = require('../../utils/log').log_detail
 const goodUrl = require('../../config').goodUrl
+const CITY = require('../../config').city
 
 Page({
 
@@ -38,6 +39,7 @@ Page({
     var _this = this;
     var mydata = {}
     mydata.id = id;
+    mydata.city = CITY;
 
     wx.request({
       url: goodUrl,

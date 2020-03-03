@@ -3,6 +3,7 @@
 const log = require('../../utils/log').log_new
 const goodSubmitUrl = require('../../config').goodSubmitUrl
 const uploadFileUrl = require('../../config').uploadFileUrl
+const CITY = require('../../config').city
 
 Page({
 
@@ -38,11 +39,12 @@ Page({
     e.detail.value.image1 = this.data.image1;
     e.detail.value.image2 = this.data.image2;
 
+    e.detail.value.city = CITY;
+
     log("fromSubmit image1 = " + this.data.image1);
     log("fromSubmit image2 = " + this.data.image2);
     log("fromSubmit address = " + e.detail.value.address);
     log("fromSubmit phone = " + e.detail.value.phone);
-
 
     log('fromSubmit ' + JSON.stringify(e.detail.value))
 

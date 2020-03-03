@@ -4,6 +4,7 @@
 const log = require('../../utils/log').log_needs
 const app = getApp()
 const listUrl = require('../../config').needListUrl
+const CITY = require('../../config').city
 const duration = 2000
 
 var curPage = 1;
@@ -39,6 +40,7 @@ Page({
     console.log("getList page = " + page)
     var mydata = {}
     mydata.page = page;
+    mydata.city = CITY;
     console.log(mydata)
     wx.request({
       url: listUrl,

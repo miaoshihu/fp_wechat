@@ -1,9 +1,10 @@
 //index.js
 //获取应用实例
-
+var getSig = require('../../utils/util.js').getSig
 const log = require('../../utils/log').log_index
 const app = getApp()
 const goodListUrl = require('../../config').goodListUrl
+const CITY = require('../../config').city
 const duration = 2000
 
 var curPage = 1;
@@ -37,6 +38,10 @@ Page({
     var mydata = {}
     var _this = this;
     mydata.page = curPage;
+    mydata.time_stamp = new Date().getTime();
+    mydata.sig = getSig(mydata.time_stamp);
+    mydata.city = CITY;
+    log('getList time_stamp =================== ' + mydata.time_stamp + " , sig = " + mydata.sig);
     wx.request({
       url: goodListUrl,
       data: mydata,

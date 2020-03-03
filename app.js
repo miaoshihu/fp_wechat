@@ -3,6 +3,7 @@ const appId = require('./config').app_id
 const appSecret = require('./config').app_secret
 const wechatLoginUrl = require('./config').wechatLoginUrl
 const authorGetUrl = require('./config').authorGetUrl
+const CITY = require('./config').city
 
 const log = require('./utils/log').log_app
 
@@ -46,6 +47,7 @@ App({
           url: authorGetUrl,
           data: {
             id: app.globalData.gOpenId,
+            city: CITY,
           },
           success: function (res) {
             log("onLaunch -> wx.login self server success " + JSON.stringify(res));
@@ -125,6 +127,7 @@ App({
           url: wechatLoginUrl,
           data: {
             code: res.code,
+            city: CITY,
             app_id: appId,
             app_secret: appSecret
           },

@@ -8,6 +8,8 @@
 var host = "xxxxx"
 
 var config = {
+    
+    city,
 
     // 下面的地址配合云端 Server 工作
     host,

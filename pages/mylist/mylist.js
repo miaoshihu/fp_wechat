@@ -4,6 +4,7 @@
 const log = require('../../utils/log').log_mylist
 const app = getApp()
 const testMylistUrl = require('../../config').testMylistUrl
+const CITY = require('../../config').city
 const duration = 2000
 
 Page({

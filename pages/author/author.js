@@ -2,6 +2,7 @@
 
 const log = require('../../utils/log').log_user
 const authorSubmitUrl = require('../../config').authorSubmitUrl
+const CITY = require('../../config').city
 
 Page({
 
@@ -24,6 +25,7 @@ Page({
 
     e.detail.value.user_id = app.globalData.gOpenId;
     e.detail.value.user_nickname = app.globalData.gUserInfo.nickName;
+    e.detail.value.city = CITY;
 
     log('fromSubmit ' + JSON.stringify(e.detail.value))
 
