@@ -12,15 +12,15 @@ App({
 
     log("onLaunch");
     this.getOpenId();
-    
+
   },
 
-  onShow:function(options) {
+  onShow: function(options) {
     log("onShow");
     this.setHaveUserInfoDefaultValue();
   },
 
-  getOpenId: function () {
+  getOpenId: function() {
     log("getOpenId");
     var that = this;
     wx.getStorage({
@@ -38,81 +38,78 @@ App({
     })
   },
 
-  getAuthorFromServer: function () {
-    wx.login({
-      success: function (res) {
-        log("getAuthorFromServer success with code = " + res.code);
+  getAuthorFromServer: function() {
+    // 检查是否可用?
+
+    log("getAuthorFromServer ");
+    const app = getApp()
+    wx.request({
+      url: authorGetUrl,
+      data: {
+        id: app.globalData.gOpenId,
+        city: CITY,
+      },
+      success: function(res) {
+        log("onLaunch -> wx.login self server success " + JSON.stringify(res));
+        const status_code = res.statusCode;
+        const code = res.data.code;
+        if (code != 0) {
+          log("onLaunch -> wx.login self server failed " + res.data.desc + "return;");
+          return;
+        }
+
         const app = getApp()
-        wx.request({
-          url: authorGetUrl,
-          data: {
-            id: app.globalData.gOpenId,
-            city: CITY,
+        var author = res.data.data
+        log("getAuthorFromServer statuscode = " + res.statusCode)
+        log("getAuthorFromServer author = " + JSON.stringify(author))
+
+        app.globalData.phone = author.phone;
+        app.globalData.point = author.point;
+        app.globalData.address = author.address;
+        app.globalData.town = author.town;
+
+        wx.getStorage({
+          key: 'nickname',
+          success(res) {
+            app.globalData.nickname = res.data;
           },
-          success: function (res) {
-            log("onLaunch -> wx.login self server success " + JSON.stringify(res));
-            const status_code = res.statusCode;
-            const code = res.data.code;
-            if (code != 0) {
-              log("onLaunch -> wx.login self server failed " + res.data.desc + "return;");
-              return;
-            }
-
-            const app = getApp()
-            var author = res.data.data
-            log("getAuthorFromServer statuscode = " + res.statusCode)
-            log("getAuthorFromServer author = " + JSON.stringify(author))
-
-            app.globalData.phone = author.phone;
-            app.globalData.point = author.point;
-            app.globalData.address = author.address;
-            app.globalData.town = author.town;
-
-            wx.getStorage({
-              key: 'nickname',
-              success(res) {
-                app.globalData.nickname = res.data;
-              },
-              fail(res) {
-                app.globalData.nickname = author.nickname;
-              }
-            })
-
-            wx.setStorage({
-              key: "nickname",
-              data: author.nickname,
-            })
-
-            wx.setStorage({
-              key: "point",
-              data: author.point,
-            })
-
-            wx.setStorage({
-              key: "town",
-              data: author.town,
-            })
-
-            wx.setStorage({
-              key: "address",
-              data: author.address,
-            })
-            wx.setStorage({
-              key: "phone",
-              data: author.phone,
-            })
-
-            wx.setStorage({
-              key: "status",
-              data: author.status,
-            })
-
-          },
-          fail: function (res) {
-            log("getAuthorFromServer failed " + JSON.stringify(author));
-
+          fail(res) {
+            app.globalData.nickname = author.nickname;
           }
         })
+
+        wx.setStorage({
+          key: "nickname",
+          data: author.nickname,
+        })
+
+        wx.setStorage({
+          key: "point",
+          data: author.point,
+        })
+
+        wx.setStorage({
+          key: "town",
+          data: author.town,
+        })
+
+        wx.setStorage({
+          key: "address",
+          data: author.address,
+        })
+        wx.setStorage({
+          key: "phone",
+          data: author.phone,
+        })
+
+        wx.setStorage({
+          key: "status",
+          data: author.status,
+        })
+
+      },
+      fail: function(res) {
+        log("getAuthorFromServer failed " + JSON.stringify(author));
       }
     })
   },
@@ -152,7 +149,7 @@ App({
               title: '网络获取失败',
               content: "openid 获取失败 " + res.errMsg,
               showCancel: false,
-              success: function (res) { }
+              success: function(res) {}
             })
           }
         })
@@ -160,7 +157,7 @@ App({
     })
   },
 
-  setHaveUserInfoDefaultValue: function () {
+  setHaveUserInfoDefaultValue: function() {
     var _this = this;
     wx.getStorage({
       key: 'have_userinfo',
@@ -175,7 +172,7 @@ App({
     })
   },
 
-  setHaveUserInfo: function (value) {
+  setHaveUserInfo: function(value) {
     wx.setStorage({
       key: "have_userinfo",
       data: value,
