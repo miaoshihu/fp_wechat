@@ -44,8 +44,8 @@ var config = {
 
     needSubmitUrl: `https://${host}/fps/need/submit`,
 
-    authorSubmitUrl: `https://${host}/fps/author/submit`,
-    authorGetUrl: `https://${host}/fps/author/get`,
+    authorRegisterUrl: `https://${host}/fps/author/register`,
+    authorLoginUrl: `https://${host}/fps/author/login`,
 };
 
 module.exports = config

@@ -2,7 +2,7 @@
 const appId = require('./config').app_id
 const appSecret = require('./config').app_secret
 const getOpenidUrl = require('./config').getOpenidUrl
-const authorGetUrl = require('./config').authorGetUrl
+const authorLoginUrl = require('./config').authorLoginUrl
 const CITY = require('./config').city
 
 const log = require('./utils/log').log_app
@@ -29,7 +29,7 @@ App({
         log("getOpenId success getStorage " + res.data);
         const app = getApp()
         app.globalData.gOpenId = res.data;
-        that.getAuthorFromServer();
+        that.doAuthorLogin();
       },
       fail(res) {
         log("getOpenId failed getStorage " + res.data);
@@ -38,13 +38,13 @@ App({
     })
   },
 
-  getAuthorFromServer: function() {
+  doAuthorLogin: function() {
     // 检查是否可用?
 
-    log("getAuthorFromServer ");
+    log("doAuthorLogin ");
     const app = getApp()
     wx.request({
-      url: authorGetUrl,
+      url: authorLoginUrl,
       data: {
         id: app.globalData.gOpenId,
         city: CITY,
@@ -60,13 +60,14 @@ App({
 
         const app = getApp()
         var author = res.data.data
-        log("getAuthorFromServer statuscode = " + res.statusCode)
-        log("getAuthorFromServer author = " + JSON.stringify(author))
+        log("doAuthorLogin statuscode = " + res.statusCode)
+        log("doAuthorLogin author = " + JSON.stringify(author))
 
         app.globalData.phone = author.phone;
         app.globalData.point = author.point;
         app.globalData.address = author.address;
         app.globalData.town = author.town;
+        app.author_token = author.token;
 
         wx.getStorage({
           key: 'nickname',
@@ -109,7 +110,7 @@ App({
 
       },
       fail: function(res) {
-        log("getAuthorFromServer failed " + JSON.stringify(author));
+        log("doAuthorLogin failed " + JSON.stringify(author));
       }
     })
   },
@@ -139,7 +140,7 @@ App({
               data: openId,
             })
 
-            that.getAuthorFromServer();
+            that.doAuthorLogin();
           },
           fail: function(res) {
             log("getOpenIdFromServer -> wx.login self server fail " + res);
@@ -189,6 +190,7 @@ App({
 
     is_wx_auth: false,
 
+    author_token: null,
     gOpenId: null,
     nickname: null,
     phone: null,

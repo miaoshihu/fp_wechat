@@ -1,7 +1,7 @@
 // pages/new/new.js
 
 const log = require('../../utils/log').log_user
-const authorSubmitUrl = require('../../config').authorSubmitUrl
+const authorRegisterUrl = require('../../config').authorRegisterUrl
 const CITY = require('../../config').city
 
 Page({
@@ -30,7 +30,7 @@ Page({
     log('fromSubmit ' + JSON.stringify(e.detail.value))
 
     wx.request({
-      url: authorSubmitUrl,
+      url: authorRegisterUrl,
       data: e.detail.value,
       success: function (res) {
         // log("onLaunch -> wx.login self server success " + JSON.stringify(res));
