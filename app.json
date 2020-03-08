@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/detail/detail",
     "pages/needs/needs",
-    "pages/self/self",
+    "pages/me/me",
     "pages/mylist/mylist",
     "pages/author/author",
     "pages/new/new"
@@ -31,7 +31,7 @@
         "iconPath": "imgs/tab_n.png"
       },
       {
-        "pagePath": "pages/self/self",
+        "pagePath": "pages/me/me",
         "text": "我",
         "selectedIconPath": "imgs/tab_h.png",
         "iconPath": "imgs/tab_n.png"
