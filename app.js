@@ -1,7 +1,7 @@
 //app.js
 const appId = require('./config').app_id
 const appSecret = require('./config').app_secret
-const wechatLoginUrl = require('./config').wechatLoginUrl
+const getOpenidUrl = require('./config').getOpenidUrl
 const authorGetUrl = require('./config').authorGetUrl
 const CITY = require('./config').city
 
@@ -124,7 +124,7 @@ App({
       success: function(res) {
         log("getOpenIdFromServer -> wx.login success with code = " + res.code);
         wx.request({
-          url: wechatLoginUrl,
+          url: getOpenidUrl,
           data: {
             code: res.code,
             city: CITY,

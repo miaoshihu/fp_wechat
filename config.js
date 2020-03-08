@@ -36,7 +36,8 @@ var config = {
     uploadFileUrl: `https://${host}/upload`,
 
     // 下载示例图片接口
-    downloadExampleUrl: `https://${host}/static/weapp.jpg`
+    downloadExampleUrl: `https://${host}/static/weapp.jpg`,
+    getOpenidUrl: 'https://shuxiaosheng.top/fps/getopenid',
     goodSubmitUrl: `https://${host}/fps/good/submit`,
     goodListUrl: `https://${host}/fps/good/getlist`,
     goodUrl: `https://${host}/fps/good/get`,
