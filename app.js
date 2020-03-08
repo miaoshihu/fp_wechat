@@ -29,11 +29,26 @@ App({
         log("getOpenId success getStorage " + res.data);
         const app = getApp()
         app.globalData.gOpenId = res.data;
-        that.doAuthorLogin();
+        
+        that.checkAndAuthorLogin();
       },
       fail(res) {
         log("getOpenId failed getStorage " + res.data);
         that.getOpenIdFromServer();
+      }
+    })
+  },
+  checkAndAuthorLogin: function() {
+    log("checkAndAuthorLogin");
+    var that = this;
+    wx.getStorage({
+      key: 'nickname',
+      success(res) {
+        log("checkAndAuthorLogin success -> doAuthorLogin");
+        that.doAuthorLogin();
+      },
+      fail(res) {
+        log("checkAndAuthorLogin failed");
       }
     })
   },
